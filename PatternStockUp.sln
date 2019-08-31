@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29209.152
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Observer", "Observer\Observer.csproj", "{0FE4FF83-F6D8-4930-B36A-9BC47CEC1AFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsefulStuff", "UsefulStuff\UsefulStuff.csproj", "{2061DB7D-6F4B-4929-80A3-747BFA459840}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0FE4FF83-F6D8-4930-B36A-9BC47CEC1AFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FE4FF83-F6D8-4930-B36A-9BC47CEC1AFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FE4FF83-F6D8-4930-B36A-9BC47CEC1AFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FE4FF83-F6D8-4930-B36A-9BC47CEC1AFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2061DB7D-6F4B-4929-80A3-747BFA459840}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2061DB7D-6F4B-4929-80A3-747BFA459840}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2061DB7D-6F4B-4929-80A3-747BFA459840}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2061DB7D-6F4B-4929-80A3-747BFA459840}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {292886D1-726D-4718-A11A-533AE35D9622}
+	EndGlobalSection
+EndGlobal
