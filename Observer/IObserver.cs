@@ -3,7 +3,7 @@ namespace Observer
 {
     internal interface IObserver
     {
-        void Update(ISubject subject);
+        void Register<T>(T t) where T : ISubject;
     }
 
     internal abstract class AObserver

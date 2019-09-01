@@ -34,7 +34,7 @@ namespace Observer
         {
             $"\n\t{SUBJECT}: Notifying observers...".Depict();
 
-            observers.ForEach(observer => observer.Update(this));
+            observers.ForEach(observer => observer.Register(this));
         }
         public void Dispose()
         {

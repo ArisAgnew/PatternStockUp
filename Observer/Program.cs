@@ -16,9 +16,9 @@ namespace Observer
 
                     $"I N B O U N D  N U M B E R :: {subject.State = n}".Depict(leftLine: true, rightLine: true);
 
-                    new BinaryObserver().Update(subject);
-                    new OctalObserver().Update(subject);
-                    new HexObserver().Update(subject);
+                    new BinaryObserver().Register(subject);
+                    new OctalObserver().Register(subject);
+                    new HexObserver().Register(subject);
                 });
 
             IEnumerable<long> GetNums(long start = default, long howMuch = default, long step = default)
