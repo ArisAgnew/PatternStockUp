@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29209.152
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Observer", "Observer\Observer.csproj", "{0FE4FF83-F6D8-4930-B36A-9BC47CEC1AFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsefulStuff", "UsefulStuff\UsefulStuff.csproj", "{2061DB7D-6F4B-4929-80A3-747BFA459840}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsefulStuff", "UsefulStuff\UsefulStuff.csproj", "{2061DB7D-6F4B-4929-80A3-747BFA459840}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
