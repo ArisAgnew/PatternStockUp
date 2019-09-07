@@ -1,15 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using UsefulStuff;
 
 namespace Observer
 {
     internal class Subject : ISubject, IDisposable
     {
+        private const string STAGE = nameof(State);
         private const string SUBJECT = nameof(Subject);
         private readonly List<IObserver> observers = new List<IObserver>();
 
-        private long _state = default;        
+        [NonSerialized]
+        private long _state = default;
+
+        [Required]
+        [Range(minimum: long.MinValue, maximum: long.MaxValue)]
+        [Display(Name = STAGE)]
         public long State
         {
             get => _state;
@@ -33,7 +40,6 @@ namespace Observer
         public void Notify()
         {
             $"\n\t{SUBJECT}: Notifying observers...".Depict();
-
             observers.ForEach(observer => observer.Register(this));
         }
         public void Dispose()

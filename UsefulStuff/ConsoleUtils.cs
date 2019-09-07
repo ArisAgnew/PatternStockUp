@@ -6,11 +6,13 @@ namespace UsefulStuff
 {
     public static class ConsoleUtils
     {
-        public static void Depict<T>(this T type,
+        public static void Depict<T>(this T type, 
+                                     ConsoleColor consoleColor = ConsoleColor.Gray,
                                      bool line = default,
                                      bool leftLine = default,
                                      bool rightLine = default) where T : IComparable<T>
         {
+            ForegroundColor = consoleColor;
             if (line) Write(type);
             else
             {
