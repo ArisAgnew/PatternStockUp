@@ -1,20 +1,25 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Observer.Observers;
 using UsefulStuff;
 
-#nullable enable
 namespace Observer
 {
     class Program
     {
         static void Main(string[] args)
         {
-            GetNums(start: 0L, howMuch: 100L, step: 25L).ToList().ForEach(n =>
+            GetNums(start: 0L, howMuch: 100L, step: 50L).ToList().ForEach(n =>
                 {
-                    using var subject = new Subject();
+                    using var subject = new Subject()
+                    {
+                        State = n
+                    };
 
-                    $"I N B O U N D  N U M B E R :: {subject.State = n}".Depict(leftLine: true, rightLine: true);
+                    subject.Affirm<Subject, string>().Depict(consoleColor: ConsoleColor.Green);
+
+                    $"I N B O U N D  N U M B E R :: {n}".Depict(leftLine: true, rightLine: true);
 
                     new BinaryObserver().Register(subject);
                     new OctalObserver().Register(subject);
