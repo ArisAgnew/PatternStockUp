@@ -5,7 +5,7 @@ using UsefulStuff;
 
 namespace Observer
 {
-    internal class Subject : ISubject, IDisposable
+    internal sealed class Subject : ISubject, IDisposable
     {
         private const string STAGE = nameof(State);
         private const string SUBJECT = nameof(Subject);

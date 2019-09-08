@@ -5,7 +5,7 @@ namespace Observer.Observers
 {
     internal class HexObserver : IObserver
     {        
-        public void Register<T>(T t) where T : ISubject
+        public virtual void Register<T>(T t) where T : ISubject
         {
             $"To hexadecimal\t=>\t0x{Convert.ToString(Subject().State, 16)}".Depict();
 

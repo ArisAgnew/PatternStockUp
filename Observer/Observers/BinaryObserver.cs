@@ -5,7 +5,7 @@ namespace Observer.Observers
 {
     internal class BinaryObserver : IObserver
     {
-        public void Register<T>(T t) where T : ISubject
+        public virtual void Register<T>(T t) where T : ISubject
         {
             $"To binary\t=>\t{Convert.ToString(Subject().State, 2).PadLeft(8, '0')}".Depict();
 
