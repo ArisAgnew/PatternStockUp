@@ -9,7 +9,7 @@ namespace UsefulStuff
 {
     public static class ValidationUtils
     {
-        public static Output Affirm<T, Output>(this T type) where T : new() where Output : class, IComparable
+        public static Output AffirmUpOnProperties<T, Output>(this T type) where T : new() where Output : class, IComparable
         {
             var validationResults = new List<ValidationResult>();
             var context = new ValidationContext(type);
