@@ -10,14 +10,10 @@ namespace Observer
     {
         static void Main(string[] args)
         {
-            GetNums(start: 0L, howMuch: 100L, step: 50L).ToList().ForEach(n =>
-                {
-                    using var subject = new Subject()
-                    {
-                        State = n
-                    };
+            GetNums(start: 0L, howMuch: 100L, step: 50L).ToList().ForEach(n => {
+                    using var subject = new Subject() { State = n };
 
-                    subject.Affirm<Subject, string>().Depict(consoleColor: ConsoleColor.Green);
+                    subject.Affirm<Subject, string>().Depict(consoleColor: ConsoleColor.Green, leftLine: true);
 
                     $"I N B O U N D  N U M B E R :: {n}".Depict(leftLine: true, rightLine: true);
 

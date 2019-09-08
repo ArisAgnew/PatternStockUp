@@ -5,7 +5,7 @@ namespace Observer.Observers
 {
     internal class OctalObserver : IObserver
     {
-        public void Register<T>(T t) where T : ISubject
+        public virtual void Register<T>(T t) where T : ISubject
         {
             $"To octal\t=>\t{Convert.ToString(Subject().State, 8)}".Depict();
 
