@@ -13,7 +13,7 @@ namespace Observer
             GetNums(start: 0L, howMuch: 100L, step: 50L).ToList().ForEach(n => {
                     using var subject = new Subject() { State = n };
 
-                    subject.Affirm<Subject, string>().Depict(consoleColor: ConsoleColor.Green, leftLine: true);
+                    subject.AffirmUpOnProperties<Subject, string>().Depict(consoleColor: ConsoleColor.Green, leftLine: true);
 
                     $"I N B O U N D  N U M B E R :: {n}".Depict(leftLine: true, rightLine: true);
 
