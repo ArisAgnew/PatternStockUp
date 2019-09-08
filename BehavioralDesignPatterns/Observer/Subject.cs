@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using UsefulStuff;
 
-namespace Observer
+namespace BehavioralDesignPatterns.Observer
 {
     internal sealed class Subject : ISubject, IDisposable
     {

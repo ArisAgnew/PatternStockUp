@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Observer.Observers;
+using BehavioralDesignPatterns.Observer.Observers;
 using UsefulStuff;
 
-namespace Observer
+namespace BehavioralDesignPatterns.Observer
 {
     class Program
     {

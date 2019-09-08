@@ -1,13 +1,13 @@
 ﻿using System;
 using UsefulStuff;
 
-namespace Observer.Observers
+namespace BehavioralDesignPatterns.Observer.Observers
 {
-    internal class BinaryObserver : IObserver
-    {
+    internal class HexObserver : IObserver
+    {        
         public virtual void Register<T>(T t) where T : ISubject
         {
-            $"To binary\t=>\t{Convert.ToString(Subject().State, 2).PadLeft(8, '0')}".Depict();
+            $"To hexadecimal\t=>\t0x{Convert.ToString(Subject().State, 16)}".Depict();
 
             Subject Subject()
             {

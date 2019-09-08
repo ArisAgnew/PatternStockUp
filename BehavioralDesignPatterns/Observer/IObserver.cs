@@ -1,5 +1,5 @@
 ﻿// you can choose what you want to go ahead, either interface or abstract class
-namespace Observer
+namespace BehavioralDesignPatterns.Observer
 {
     internal interface IObserver
     {

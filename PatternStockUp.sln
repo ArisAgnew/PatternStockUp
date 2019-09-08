@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29209.152
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Observer", "Observer\Observer.csproj", "{0FE4FF83-F6D8-4930-B36A-9BC47CEC1AFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Observer", "BehavioralDesignPatterns\Observer\Observer.csproj", "{0FE4FF83-F6D8-4930-B36A-9BC47CEC1AFE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsefulStuff", "UsefulStuff\UsefulStuff.csproj", "{2061DB7D-6F4B-4929-80A3-747BFA459840}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BehavioralDesignPatterns", "BehavioralDesignPatterns", "{2AC9E62D-B635-4CFB-9E7E-8206395DF66A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StructurialDesignPatterns", "StructurialDesignPatterns", "{1F16092E-C308-4FAD-B510-C6F42FC3DDF5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CreationalDesignPatterns", "CreationalDesignPatterns", "{F6DE70E7-3977-4758-8651-E2873329DFD3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +30,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0FE4FF83-F6D8-4930-B36A-9BC47CEC1AFE} = {2AC9E62D-B635-4CFB-9E7E-8206395DF66A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {292886D1-726D-4718-A11A-533AE35D9622}

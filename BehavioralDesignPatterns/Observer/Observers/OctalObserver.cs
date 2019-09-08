@@ -1,13 +1,13 @@
 ﻿using System;
 using UsefulStuff;
 
-namespace Observer.Observers
+namespace BehavioralDesignPatterns.Observer.Observers
 {
-    internal class HexObserver : IObserver
-    {        
+    internal class OctalObserver : IObserver
+    {
         public virtual void Register<T>(T t) where T : ISubject
         {
-            $"To hexadecimal\t=>\t0x{Convert.ToString(Subject().State, 16)}".Depict();
+            $"To octal\t=>\t{Convert.ToString(Subject().State, 8)}".Depict();
 
             Subject Subject()
             {

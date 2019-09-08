@@ -1,4 +1,4 @@
-﻿namespace Observer
+﻿namespace BehavioralDesignPatterns.Observer
 {
     internal interface ISubject
     {
