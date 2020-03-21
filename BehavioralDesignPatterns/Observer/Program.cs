@@ -8,25 +8,35 @@ namespace BehavioralDesignPatterns.Observer
 {
     class Program
     {
+        static BinaryObserver binaryObserver = new BinaryObserver();
+        static OctalObserver octalObserver = new OctalObserver();
+        static HexObserver hexObserver = new HexObserver();
+
         static void Main(string[] args)
         {
-            GetNums(start: 0L, howMuch: 100L, step: 50L).ToList().ForEach(n => {
-                    using var subject = new Subject() { State = n };
+            GetNums(start: 0L, howMuch: 100L, step: 50L).ToList().ForEach(n =>
+            {
+                using var subject = new Subject() { State = n };
 
-                    subject.AffirmUpOnProperties<Subject, string>().Depict(consoleColor: ConsoleColor.Green, leftLine: true);
+                subject.AffirmUpOnProperties<Subject, string>()
+                    .Depict(consoleColor: ConsoleColor.Green, leftLine: true);
 
-                    $"I N B O U N D  N U M B E R :: {n}".Depict(leftLine: true, rightLine: true);
+                binaryObserver.Register(subject);
+                octalObserver.Register(subject);
+                hexObserver.Register(subject);
 
-                    new BinaryObserver().Register(subject);
-                    new OctalObserver().Register(subject);
-                    new HexObserver().Register(subject);
-                });
+                binaryObserver.Unregister(subject);
+                octalObserver.Unregister(subject);
+                hexObserver.Unregister(subject);
+            });
 
-            IEnumerable<long> GetNums(long start = default, long howMuch = default, long step = default)
+            IEnumerable<long> GetNums(long start = default,
+                                      long howMuch = default,
+                                      long step = default)
             {
                 for (long i = start; i <= howMuch; i += step)
                 {
-                    if (howMuch == default || howMuch < step)
+                    if (howMuch == default && howMuch < step)
                         yield break;
                     yield return i;
                 }

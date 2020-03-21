@@ -9,7 +9,9 @@ namespace UsefulStuff
 {
     public static class ValidationUtils
     {
-        public static Output AffirmUpOnProperties<T, Output>(this T type) where T : new() where Output : class, IComparable
+        public static Output AffirmUpOnProperties<T, Output>(this T type) 
+            where T : new() 
+            where Output : class, IComparable
         {
             var validationResults = new List<ValidationResult>();
             var context = new ValidationContext(type);
@@ -28,7 +30,8 @@ namespace UsefulStuff
             }
             else
             {
-                return propertyInfos?.Select(pi => string.Join(";\n", string.Join($" :: ", pi.Name, pi.GetValue(type))))
+                return propertyInfos?
+                    .Select(pi => string.Join(";\n", string.Join($" :: ", pi.Name, pi.GetValue(type))))
                     .FirstOrDefault() as Output;
             }
         }
