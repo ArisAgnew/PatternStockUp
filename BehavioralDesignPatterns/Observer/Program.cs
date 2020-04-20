@@ -25,6 +25,9 @@ namespace BehavioralDesignPatterns.Observer
                 octalObserver.Register(subject);
                 hexObserver.Register(subject);
 
+                "Frontier between being already registered & unregistered"
+                    .Depict(consoleColor: ConsoleColor.Yellow, rightLine: true);
+
                 binaryObserver.Unregister(subject);
                 octalObserver.Unregister(subject);
                 hexObserver.Unregister(subject);
