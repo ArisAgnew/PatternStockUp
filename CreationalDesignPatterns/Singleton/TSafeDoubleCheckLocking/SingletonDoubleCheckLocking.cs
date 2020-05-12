@@ -45,9 +45,9 @@ namespace Singleton.TSafeDoubleCheckLocking
             })();
         }
                 
-        public string SomeBusinessLogic(in string value)
+        public void SomeBusinessLogic(in string value, out string result)
         {
-            return value.DoStringReversed();
+            result = value.DoStringReversed();
         }
     }
 }
