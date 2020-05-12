@@ -44,7 +44,7 @@ namespace Singleton.TSafeDoubleCheckLocking
                 return _instance;
             })();
         }
-                        
+                
         public string SomeBusinessLogic(in string value)
         {
             return value.DoStringReversed();
