@@ -13,21 +13,22 @@ namespace CreationalDesignPatterns.Singleton
         {
             #region type safe double check locking
 
-            Task task1 = new Task(() =>
-            {
-                const string VALUE = "Function";
-                SingletonDoubleCheckLocking singleton = SingletonDoubleCheckLocking.GetAmplifiedInstance(VALUE);
-                WriteLine(singleton.Value);
-                WriteLine(singleton.SomeBusinessLogic(singleton.Value));
-            });
+            string value1 = "Function";
+            string value2 = "Method";
 
-            Task task2 = new Task(() =>
+            Task task1 = new Task(v =>
             {
-                const string VALUE = "Method";
-                SingletonDoubleCheckLocking singleton = SingletonDoubleCheckLocking.GetAmplifiedInstance(VALUE);
+                SingletonDoubleCheckLocking singleton = SingletonDoubleCheckLocking.GetAmplifiedInstance(v as string);
                 WriteLine(singleton.Value);
                 WriteLine(singleton.SomeBusinessLogic(singleton.Value));
-            });
+            }, value1);
+
+            Task task2 = new Task(v =>
+            {
+                SingletonDoubleCheckLocking singleton = SingletonDoubleCheckLocking.GetAmplifiedInstance(v as string);
+                WriteLine(singleton.Value);
+                WriteLine(singleton.SomeBusinessLogic(singleton.Value));
+            }, value2);
 
             task1.Start();
             task2.Start();
