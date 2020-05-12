@@ -7,8 +7,8 @@ namespace BehavioralDesignPatterns.Observer
 {
     internal sealed class Subject : ISubject, IDisposable
     {
-        private const string STAGE = nameof(State);
         private const string SUBJECT = nameof(Subject);
+
         private readonly List<IObserver> observers = new List<IObserver>();
 
         [NonSerialized]
@@ -16,7 +16,7 @@ namespace BehavioralDesignPatterns.Observer
 
         [Required]
         [Range(minimum: long.MinValue, maximum: long.MaxValue)]
-        [Display(Name = STAGE)]
+        [Display(Name = nameof(State))]
         public long State
         {
             get => _state;

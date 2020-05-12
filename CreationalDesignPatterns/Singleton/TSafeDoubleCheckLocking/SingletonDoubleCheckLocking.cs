@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Singleton.ThreadSafe
+namespace Singleton.TSafeDoubleCheckLocking
 {
     /*
      * This implementation attempts to be thread-safe without the necessity of taking out a lock every time. 
@@ -22,45 +22,32 @@ namespace Singleton.ThreadSafe
      * any significant changes are likely to impact either performance or correctness.
      * 4. It still doesn't perform as well as the later implementations.
      */
-    internal sealed class Singleton
+    internal sealed class SingletonDoubleCheckLocking
     {
         private static readonly object synchronized = new object();
 
-        private static Singleton _instance;
+        private static SingletonDoubleCheckLocking _instance;
 
-        private Singleton() { }
+        private SingletonDoubleCheckLocking() { }
 
-        public string Value { get; private set; }
+        public string Value { get; set; }
 
-        public static Singleton GetAmplifiedInstance(string value)
+        public static SingletonDoubleCheckLocking GetAmplifiedInstance(string value)
         {
-            return _instance ??= new Func<Singleton>(() =>
+            return _instance ??= new Func<SingletonDoubleCheckLocking>(() =>
             {
                 lock (synchronized)
                 {
-                    (_instance ??= new Singleton()).Value = value;
+                    (_instance ??= new SingletonDoubleCheckLocking()).Value = value;
                 }
 
                 return _instance;
             })();
         }
-
-        [Obsolete(message: "It appears to be removed")]
-        public static Singleton Instance
+                        
+        public string SomeBusinessLogic(in string value)
         {
-            get
-            {
-                return _instance ??= new Func<Singleton>(() =>
-                {
-                    lock (synchronized)
-                    {
-                        return _instance ??= new Singleton();
-                    }
-                })();
-            }
-            private set { }
+            return value.DoStringReversed();
         }
-
-        public void SomeBusinessLogic() { }
     }
 }

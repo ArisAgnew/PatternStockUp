@@ -4,13 +4,13 @@
     {
         private SingletonSecond() { }
 
-        public static SingletonSecond Instance { get; } = SingletonNested.INSTANCE;
+        public static SingletonSecond Instance { get; } = Nested.instance;
 
-        private class SingletonNested
+        private class Nested
         {
-            static SingletonNested() { }
+            static Nested() { }
 
-            internal static readonly SingletonSecond INSTANCE = new SingletonSecond();
+            internal static readonly SingletonSecond instance = new SingletonSecond();
         }
 
         public void SomeBusinessLogic() { }

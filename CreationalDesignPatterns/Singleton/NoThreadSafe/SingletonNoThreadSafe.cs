@@ -13,17 +13,17 @@
      * by other threads unless suitable memory barriers have been passed.
      */
      // It is the bad code, this is not allowed to use anywhere in your projects.
-    internal sealed class Singleton
+    internal sealed class SingletonNoThreadSafe
     {
-        private static Singleton _instance;
+        private static SingletonNoThreadSafe _instance;
 
-        private Singleton() { }
+        private SingletonNoThreadSafe() { }
 
-        public static Singleton Instance
+        public static SingletonNoThreadSafe Instance
         {
             get
             {
-                return _instance ??= new Singleton();
+                return _instance ??= new SingletonNoThreadSafe();
             }
             private set { }
         }
