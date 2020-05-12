@@ -13,7 +13,8 @@ namespace UsefulStuff
                                      bool rightLine = default) where T : IComparable<T>
         {
             ForegroundColor = consoleColor;
-            if (line) Write(type);
+
+            if (line) Write($"{type}; ");
             else
             {
                 if (leftLine && rightLine == default)
@@ -29,7 +30,7 @@ namespace UsefulStuff
                     WriteLine($"\n{type}\n");
                 }
                 else WriteLine(type);
-            }
+            }            
         }
     }
 }
