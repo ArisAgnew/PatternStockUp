@@ -4,13 +4,14 @@ namespace BehavioralDesignPatterns.Observer
     internal interface IObserver
     {
         void Register<T>(T t) where T : ISubject;
+        void Unregister<T>(T t) where T : ISubject;
     }
 
     internal abstract class AObserver
     {
-        #pragma warning disable
+#pragma warning disable
         private protected Subject subject;
-        #pragma warning enable
+#pragma warning enable
         public abstract void Update();
     }
 }
