@@ -3,7 +3,6 @@ using UsefulStuff;
 
 namespace BehavioralDesignPatterns.Observer.Observers
 {
-    //todo 02/16/2020 Make lazy safe-thread Singleton
     internal class OctalObserver : IObserver
     {
         public virtual void Register<T>(T t) where T : ISubject
