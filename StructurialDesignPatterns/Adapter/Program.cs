@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 
 using Adapter.Adapter1;
 using UsefulStuff;
-using static System.Console;
 
 namespace StructurialDesignPatterns.Adapter
 {
