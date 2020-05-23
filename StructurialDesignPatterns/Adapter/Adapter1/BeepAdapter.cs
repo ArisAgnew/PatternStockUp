@@ -5,9 +5,23 @@ using UsefulStuff;
 
 namespace Adapter.Adapter1
 {
-    internal enum SimpleBeep { Default, Perls, Upper }
+    internal enum SimpleBeep
+    {
+        Default,
+        Perls,
+        Upper,
 
-    internal enum MusicBeep { MissionImpossible, StarWars, HappyBirthday }
+        Set = Default | Perls | Upper
+    }
+
+    internal enum MusicBeep
+    {
+        MissionImpossible,
+        StarWars,
+        HappyBirthday,
+
+        Set = MissionImpossible | StarWars | HappyBirthday
+    }
 
     internal class BeepAdapter : IBeepGenerator
     {
@@ -25,14 +39,14 @@ namespace Adapter.Adapter1
             _musicBeepGenerator = musicBeepGenerator
                 ?? throw new ArgumentNullException(
                     $"The instance of {nameof(MusicBeepGenerator)} has not been specified");
-        
+
         public void EnhancedBeep(in double duration)
         {
-            switch(BeepType)
+            switch (BeepType)
             {
                 case SimpleBeep.Default:
                     "|> Beep Default 37".Depict(consoleColor: ConsoleColor.Green);
-                    _simpleBeepGenerator.BeepDefault(duration); 
+                    _simpleBeepGenerator.BeepDefault(duration);
                     break;
 
                 case SimpleBeep.Perls:
