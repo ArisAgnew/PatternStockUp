@@ -1,13 +1,14 @@
 ﻿using System;
 
 using static System.Console;
+using static System.ConsoleColor;
 
 namespace UsefulStuff
 {
     public static class ConsoleUtils
     {
-        public static void Depict<T>(this T type, 
-                                     ConsoleColor consoleColor = ConsoleColor.Gray,
+        public static void Depict<T>(this T type,
+                                     ConsoleColor consoleColor = Gray,
                                      bool line = default,
                                      bool leftLine = default,
                                      bool rightLine = default) where T : IComparable<T>
@@ -30,7 +31,9 @@ namespace UsefulStuff
                     WriteLine($"\n{type}\n");
                 }
                 else WriteLine(type);
-            }            
+            }
+
+            ForegroundColor = Gray;
         }
     }
 }
