@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace Adapter.Adapter1
 {
+    [Obsolete("Do not use")]
     internal class PianoDemo
     {
         static int GetPianoKey(string note)
