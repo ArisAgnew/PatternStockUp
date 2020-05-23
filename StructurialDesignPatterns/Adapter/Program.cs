@@ -3,7 +3,7 @@ using System.Media;
 using System.Threading.Tasks;
 
 using Adapter.Adapter1;
-
+using UsefulStuff;
 using static System.Console;
 
 namespace StructurialDesignPatterns.Adapter
@@ -27,7 +27,7 @@ namespace StructurialDesignPatterns.Adapter
             };
 
             simpleGen.EnhancedBeep(0.1);
-            WriteLine("...And following up with...");
+            "...And following up with...".Depict();
             musicGen.EnhancedBeep(5);
             #endregion some music adapter showcasing
         }
