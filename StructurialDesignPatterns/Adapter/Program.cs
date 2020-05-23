@@ -18,7 +18,7 @@ namespace StructurialDesignPatterns.Adapter
 
             IBeepGenerator simpleGen = new BeepAdapter(simpleBeep)
             {
-                BeepType = default
+                BeepType = SimpleBeep.Perls
             };
 
             IBeepGenerator musicGen = new BeepAdapter(musicBeep)
