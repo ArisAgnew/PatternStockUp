@@ -30,42 +30,51 @@ namespace Adapter.Adapter1
         {
             switch(BeepType)
             {
-                case SimpleBeep.Default: 
+                case SimpleBeep.Default:
+                    "|> Beep Default 37".Depict(consoleColor: ConsoleColor.Green);
                     _simpleBeepGenerator.BeepDefault(duration); 
                     break;
 
                 case SimpleBeep.Perls:
+                    "|> Beep Perls".Depict(consoleColor: ConsoleColor.Green);
                     _simpleBeepGenerator.BeepPerls(duration);
                     break;
 
                 case SimpleBeep.Upper:
+                    "|> Beep Upper 32737".Depict(consoleColor: ConsoleColor.Green);
                     _simpleBeepGenerator.BeepUpper(duration);
                     break;
 
                 case MusicBeep.MissionImpossible:
+                    "|> Mission Imposible".Depict(consoleColor: ConsoleColor.Green);
                     _musicBeepGenerator.MissionImpossible();
                     break;
 
                 case MusicBeep.StarWars:
+                    "|> Star Wars".Depict(consoleColor: ConsoleColor.Green);
                     _musicBeepGenerator.StarWars();
                     break;
 
                 case MusicBeep.HappyBirthday:
+                    "|> Happy Birthday".Depict(consoleColor: ConsoleColor.Green);
                     _musicBeepGenerator.HappyBirthday();
                     break;
 
                 default:
                     var sb = new StringBuilder();
+
                     sb.AppendLine("There is no any other Beepers!");
                     sb.AppendLine();
-                    sb.Append($"Choose only as follows: " +
-                        $"{SimpleBeep.Default.ToString()}, " +
-                        $"{SimpleBeep.Upper.ToString()}, " +
-                        $"{MusicBeep.MissionImpossible.ToString()}, " +
-                        $"{MusicBeep.StarWars.ToString()}, " +
-                        $"{MusicBeep.HappyBirthday.ToString()}");
+                    sb.AppendLine("Choose only as follows:");
+                    sb.AppendLine($"\t{SimpleBeep.Default.ToString()},");
+                    sb.AppendLine($"\t{SimpleBeep.Upper.ToString()},");
+                    sb.AppendLine($"\t{SimpleBeep.Perls.ToString()},");
+                    sb.AppendLine($"\t{MusicBeep.MissionImpossible.ToString()},");
+                    sb.AppendLine($"\t{MusicBeep.StarWars.ToString()},");
+                    sb.AppendLine($"\t{MusicBeep.HappyBirthday.ToString()}");
 
-                    sb.ToString().Depict(consoleColor: ConsoleColor.Red, leftLine: true);
+                    sb.ToString()
+                        .Depict(consoleColor: ConsoleColor.Red, leftLine: true);
                     break;
             }
         }
