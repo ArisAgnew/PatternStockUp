@@ -12,7 +12,7 @@ namespace Adapter.Adapter1
     {
         internal MusicBeepGenerator() => WriteLine("Music Beep Generator is established");
 
-        internal void MissionImpossible()
+        internal protected void MissionImpossible()
         {
             Beep(784, 150);
             Thread.Sleep(300);
@@ -62,7 +62,7 @@ namespace Adapter.Adapter1
             Beep(523, 150);
         }
 
-        internal void StarWars()
+        internal protected void StarWars()
         {
             Beep(300, 500);
             Thread.Sleep(50);
@@ -82,7 +82,7 @@ namespace Adapter.Adapter1
             Thread.Sleep(50);
         }
 
-        internal void HappyBirthday()
+        internal protected void HappyBirthday()
         {
             Thread.Sleep(2000);
             Beep(264, 125);

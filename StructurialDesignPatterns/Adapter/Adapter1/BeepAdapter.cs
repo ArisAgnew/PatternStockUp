@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Text;
-
+using Unity;
 using UsefulStuff;
 
 namespace Adapter.Adapter1
@@ -25,16 +25,18 @@ namespace Adapter.Adapter1
 
     internal class BeepAdapter : IBeepGenerator
     {
-        private SimpleBeepGenerator _simpleBeepGenerator;
-        private MusicBeepGenerator _musicBeepGenerator;
+        private SimpleBeepGenerator _simpleBeepGenerator = default;
+        private MusicBeepGenerator _musicBeepGenerator = default;
 
         public Enum BeepType { get; set; }
 
+        [InjectionConstructor]
         internal BeepAdapter(SimpleBeepGenerator simpleBeepGenerator) =>
             _simpleBeepGenerator = simpleBeepGenerator
                 ?? throw new ArgumentNullException(
                     $"The instance of {nameof(SimpleBeepGenerator)} has not been specified");
 
+        [InjectionConstructor]
         internal BeepAdapter(MusicBeepGenerator musicBeepGenerator) =>
             _musicBeepGenerator = musicBeepGenerator
                 ?? throw new ArgumentNullException(
@@ -59,6 +61,10 @@ namespace Adapter.Adapter1
                     _simpleBeepGenerator.BeepUpper(duration);
                     break;
 
+                case SimpleBeep.Set:
+                    "|> Beep ?".Depict(consoleColor: ConsoleColor.Green);
+                    break; //todo
+
                 case MusicBeep.MissionImpossible:
                     "|> Mission Imposible".Depict(consoleColor: ConsoleColor.Green);
                     _musicBeepGenerator.MissionImpossible();
@@ -73,6 +79,10 @@ namespace Adapter.Adapter1
                     "|> Happy Birthday".Depict(consoleColor: ConsoleColor.Green);
                     _musicBeepGenerator.HappyBirthday();
                     break;
+
+                case MusicBeep.Set:
+                    "|> Beep ?".Depict(consoleColor: ConsoleColor.Green);
+                    break; //todo
 
                 default:
                     var sb = new StringBuilder();
