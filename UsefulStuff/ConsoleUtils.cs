@@ -11,7 +11,8 @@ namespace UsefulStuff
                                      ConsoleColor consoleColor = Gray,
                                      bool line = default,
                                      bool leftLine = default,
-                                     bool rightLine = default) where T : IComparable<T>
+                                     bool rightLine = default) 
+            where T : IComparable<T>
         {
             ForegroundColor = consoleColor;
 
