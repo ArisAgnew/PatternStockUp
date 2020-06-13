@@ -1,12 +1,27 @@
-﻿using System;
+﻿using Memento;
+
+using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace BehavioralDesignPatterns.Memento
 {
-    class Program
+    internal class Program
     {
+        [SuppressMessage("Style", "IDE0060")]
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            try
+            {
+                new Application().Run();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Some errors have been occured, please endeavour to deal with them afterwards.");
+                Console.WriteLine($"Cause: {e.Message}\n");
+                Console.WriteLine($"StackTrace:\n{e.StackTrace}\n");
+                Console.WriteLine($"Exception type: {e.GetType().FullName}\n");
+                Console.WriteLine($"TargetSite: {e.TargetSite}\n");
+            }
         }
     }
 }
