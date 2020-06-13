@@ -25,7 +25,7 @@ namespace Memento.Controller
                 ? throw new InvalidOperationException("There is no way to look through the history due to it is empty.")
                 : _history;
 
-        public virtual void Put([DisallowNull] IMonitorMemento monitorMemento)
+        public virtual MonitorHistory Put([DisallowNull] IMonitorMemento monitorMemento)
         {
             if (!(monitorMemento is MonitorMemento))
             {
@@ -33,6 +33,7 @@ namespace Memento.Controller
             }
 
             CheckUponDefaultHistory().Push(monitorMemento);
+            return this;
         }
 
         public virtual IMonitorMemento Pull() => CheckUponEmptyHistory().Pop();
@@ -41,24 +42,25 @@ namespace Memento.Controller
 
         protected virtual void Clear() => CheckUponDefaultHistory().Clear();
 
-        public void ResetAllData()
+        public MonitorHistory ResetAllData()
         {
             if (CheckUponDefaultHistory().Count == 0)
             {
                 Console.WriteLine($"\nMonitor history has not been reseted due to the history is empty.");
-                return;
+                return this;
             }
 
             Clear();
             Console.WriteLine($"\n\nMonitor history has been reseted.");
+            return this;
         }
 
-        public void ShowHistory()
+        public MonitorHistory ShowHistory()
         {
             if (CheckUponDefaultHistory().Count == 0)
             {
                 Console.WriteLine($"\nMonitor history is empty. There is nothing to exhibit.");
-                return;
+                return this;
             }
 
             Console.WriteLine($"\n[There is the history of the {nameof(MonitorMemento)}].");
@@ -84,6 +86,8 @@ namespace Memento.Controller
             {
                 enumerator?.Dispose();
             }
+
+            return this;
         }
 
         public IEnumerator<IMonitorMemento> GetEnumerator()
