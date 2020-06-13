@@ -69,8 +69,7 @@ namespace Memento
 
                         if (keyInfo.Key == ConsoleKey.Y)
                         {
-                            History.ResetAllData();
-                            History.ShowHistory();
+                            History.ResetAllData().ShowHistory();
                         }
 
                         Console.WriteLine("\nKeep on working...\n");
