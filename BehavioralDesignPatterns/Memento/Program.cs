@@ -1,4 +1,5 @@
 ﻿using Memento;
+using Memento.Lab;
 
 using System;
 using System.Diagnostics.CodeAnalysis;
@@ -13,8 +14,10 @@ namespace BehavioralDesignPatterns.Memento
             try
             {
                 new Application().Run();
+
+                //StackToLabProbe.StackToRiseUp();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine("Some errors have been occured, please endeavour to deal with them afterwards.");
                 Console.WriteLine($"Cause: {e.Message}\n");
