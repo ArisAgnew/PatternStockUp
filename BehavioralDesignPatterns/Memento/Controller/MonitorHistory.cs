@@ -25,7 +25,8 @@ namespace Memento.Controller
                 ? throw new InvalidOperationException("There is no way to look through the history due to it is empty.")
                 : _history;
 
-        public virtual MonitorHistory Put([DisallowNull] IMonitorMemento monitorMemento)
+        [return: NotNullIfNotNull("monitorMemento")]
+        public virtual MonitorHistory Put(IMonitorMemento? monitorMemento)
         {
             if (!(monitorMemento is MonitorMemento))
             {
@@ -64,6 +65,7 @@ namespace Memento.Controller
             }
 
             Console.WriteLine($"\n[There is the history of the {nameof(MonitorMemento)}].");
+
 
             using IEnumerator<IMonitorMemento> enumerator = GetEnumerator();
 
