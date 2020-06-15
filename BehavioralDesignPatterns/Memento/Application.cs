@@ -51,7 +51,11 @@ namespace Memento
 
                     processes = new SortedSet<string>(compoundProcesses);
 
-                    Monitor = new Monitor(uptime, pollingInterval, processes); //originator
+                    Monitor = Monitor.Empty
+                        .SetUptime(uptime)
+                        .SetPollingInterval(pollingInterval)
+                        .SetProcessNames(processes)
+                        .Build();
 
                     History.Put(Monitor.Save());
 

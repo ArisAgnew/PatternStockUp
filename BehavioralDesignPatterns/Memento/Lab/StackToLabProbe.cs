@@ -21,10 +21,11 @@ namespace Memento.Lab
 
             for (int i = 0; i < THRESHOLD; i++)
             {
-                Monitor monitor = new Monitor(
-                    rnd.Next(default, int.MaxValue),
-                    rnd.Next(default, int.MaxValue),
-                    new SortedSet<string>(new string[] { RandomString }));
+                Monitor monitor = Monitor.Empty
+                        .SetUptime(rnd.Next(default, int.MaxValue))
+                        .SetPollingInterval(rnd.Next(default, int.MaxValue))
+                        .SetProcessNames(new SortedSet<string>(new string[] { RandomString }))
+                        .Build();
 
                 History.Put(monitor.Save());
 
