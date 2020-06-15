@@ -37,7 +37,6 @@ namespace Memento.Controller
 
         public static MonitorImplBuilder Empty { get; } = new MonitorImplBuilder();
 
-
         public IMonitorMemento Save()
         {
             Console.WriteLine($"\nSaving the values coming from console.\n" +
