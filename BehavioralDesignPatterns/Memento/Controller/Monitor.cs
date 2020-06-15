@@ -13,6 +13,8 @@ namespace Memento.Controller
     /// <remarks>Perhaps this class ought to implement some interface in order to be with even stricter encapsulation</remarks>
     internal class Monitor
     {
+        private readonly IReadOnlyCollection<string> EMPTY_COLLECTION = new SortedSet<string>();
+
         private double? _uptime;
         private double? _pollingInterval;
         private SortedSet<string>? _processNames;
@@ -42,7 +44,7 @@ namespace Memento.Controller
             Console.WriteLine($"\nSaving the values coming from console.\n" +
                 $"Uptime is {_uptime} now.\n" +
                 $"PolingInterval is {_pollingInterval} now.\n" +
-                $"Indicated processes are {string.Join(", ", _processNames ?? new SortedSet<string>())} now.");
+                $"Indicated processes are {string.Join(", ", _processNames ?? EMPTY_COLLECTION)} now.");
 
             return new MonitorMemento(_uptime, _pollingInterval, _processNames);
         }
@@ -67,12 +69,13 @@ namespace Memento.Controller
 
             _uptime = monitorMemento.Uptime;
             _pollingInterval = monitorMemento.PollingInterval;
-            _processNames = monitorMemento.ProcessNames;
+            _processNames = monitorMemento.ProcessNames as SortedSet<string> 
+                ?? throw new InvalidCastException(nameof(SortedSet<string>));
 
             Console.WriteLine($"\nMonitor history has been updated.\n" +
                 $"Uptime is {_uptime} after reseting.\n" +
                 $"PolingInterval is {_pollingInterval} after reseting.\n" +
-                $"Indicated processes are {_processNames.Count} after reseting.");
+                $"Indicated processes are {_processNames?.Count} after reseting.");
         }
 
         public class MonitorImplBuilder

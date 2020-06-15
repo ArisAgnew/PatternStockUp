@@ -7,7 +7,7 @@ namespace Memento.Abstraction
         /// <summary>
         /// Sorted set collection in order for process names to store
         /// </summary>
-        /// <see cref="SortedSet{T}"/>
-        SortedSet<T> ProcessNames { get; }
+        /// <see cref="IReadOnlyCollection{T}"/>
+        IReadOnlyCollection<T> ProcessNames { get; }
     }
 }

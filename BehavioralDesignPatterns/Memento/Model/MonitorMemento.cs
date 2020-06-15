@@ -14,11 +14,11 @@ namespace Memento.Model
 
         public double? PollingInterval { get; private set; }
 
-        public SortedSet<string> ProcessNames { get; private set; }
+        public IReadOnlyCollection<string> ProcessNames { get; private set; }
 
         public MonitorMemento(double? uptime,
                               double? pollingInterval,
-                              SortedSet<string>? processNames)
+                              IReadOnlyCollection<string>? processNames)
         {
             Uptime = uptime ?? throw new ArgumentException($"{nameof(Uptime)} should not be less than 0.");
             PollingInterval = pollingInterval ?? throw new ArgumentException($"{nameof(PollingInterval)} should not be less than 0.");
