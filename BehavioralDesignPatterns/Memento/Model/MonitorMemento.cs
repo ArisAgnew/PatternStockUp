@@ -18,7 +18,7 @@ namespace Memento.Model
 
         public MonitorMemento(double? uptime,
                               double? pollingInterval,
-                              SortedSet<string> processNames)
+                              SortedSet<string>? processNames)
         {
             Uptime = uptime ?? throw new ArgumentException($"{nameof(Uptime)} should not be less than 0.");
             PollingInterval = pollingInterval ?? throw new ArgumentException($"{nameof(PollingInterval)} should not be less than 0.");
