@@ -66,7 +66,6 @@ namespace Memento.Controller
 
             Console.WriteLine($"\n[There is the history of the {nameof(MonitorMemento)}].");
 
-
             using IEnumerator<IMonitorMemento> enumerator = GetEnumerator();
 
             try
