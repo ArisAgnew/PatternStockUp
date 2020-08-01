@@ -42,6 +42,16 @@ namespace CreationalDesignPatterns.Singleton
             #region type safe double check locking
             ThreadSafeDoubleCheckLockingSingletonTest();
             #endregion type safe double check locking
+
+            int iteration = default;
+
+            for(var frequency = 37; frequency <= 32500; frequency += 500)
+            {
+                var duration = 1_000; //ms                
+                WriteLine($"Frequency: {frequency}; Step: {iteration}");
+                Beep(frequency, duration);
+                iteration++;
+            }
         }
     }
 }
