@@ -3,7 +3,7 @@
     internal interface ITimeMemento
     {
         /// <summary>
-        /// A time that indicates some interval of polling
+        /// A time that is a measure of system reliability
         /// </summary>
         double? Uptime { get; }
 
