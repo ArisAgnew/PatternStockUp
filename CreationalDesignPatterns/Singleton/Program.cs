@@ -13,19 +13,22 @@ namespace CreationalDesignPatterns.Singleton
     {
         private static void ThreadSafeDoubleCheckLockingSingletonTest()
         {
-            Task task1 = new Task(v => CreateSinglton(v), "Interface");
-            Task task2 = new Task(v => CreateSinglton(v), "Abstract Class");
-            Task task3 = new Task(v => CreateSinglton(v), "Custom Type");
+            Task[] tasks = new Task[3]
+            {
+                new Task(v => CreateSinglton(v), "Interface"),
+                new Task(v => CreateSinglton(v), "Abstract Class"),
+                new Task(v => CreateSinglton(v), "Custom Type")
+            };
 
-            task1.Start();
-            task2.Start();
-            task3.Start();
+            foreach (var task in tasks)
+            {
+                if (task.Status == TaskStatus.Created)
+                {
+                    task.Start();
+                }
+            }
 
-            task1.Wait();
-            task2.Wait();
-            task3.Wait();
-
-            ResetColor();
+            Task.WaitAll(tasks);
 
             void CreateSinglton(in object obj)
             {
@@ -33,7 +36,7 @@ namespace CreationalDesignPatterns.Singleton
                 singleton.SomeBusinessLogic(singleton.Value, out string resultString);
 
                 $"Initial value: {singleton.Value}".Depict(consoleColor: ConsoleColor.DarkYellow);
-                $"Reversed value: {resultString}".Depict(consoleColor: ConsoleColor.DarkCyan);                
+                $"Reversed value: {resultString}".Depict(consoleColor: ConsoleColor.DarkCyan);
             }
         }
 
@@ -42,6 +45,16 @@ namespace CreationalDesignPatterns.Singleton
             #region type safe double check locking
             ThreadSafeDoubleCheckLockingSingletonTest();
             #endregion type safe double check locking
+
+            /*int iteration = default;
+
+            for(var frequency = 37; frequency <= 32500; frequency += 500)
+            {
+                var duration = 1_000; //ms                
+                WriteLine($"Frequency: {frequency}; Step: {iteration}");
+                Beep(frequency, duration);
+                iteration++;
+            }*/
         }
     }
 }
