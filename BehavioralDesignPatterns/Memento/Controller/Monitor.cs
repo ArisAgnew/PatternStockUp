@@ -23,9 +23,9 @@ namespace Memento.Controller
                         [MaybeNull] double? pollingInterval,
                         [MaybeNull] SortedSet<string>? processNames)
         {
-            _uptime = uptime ?? throw new ArgumentException($"Uptime should not be less than 0.");
-            _pollingInterval = pollingInterval ?? throw new ArgumentException($"PollingInterval should not be less than 0.");
-            _processNames = processNames ?? throw new ArgumentException($"Process names collection should be defined.");
+            _uptime = uptime ?? throw new ArgumentException("Uptime should not be less than 0.");
+            _pollingInterval = pollingInterval ?? throw new ArgumentException("PollingInterval should not be less than 0.");
+            _processNames = processNames ?? throw new ArgumentException("Process names collection should be defined.");
         }
 
         public void Deconstruct(out double? uptime,
