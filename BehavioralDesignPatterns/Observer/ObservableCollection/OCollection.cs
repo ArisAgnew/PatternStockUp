@@ -60,7 +60,7 @@ namespace BehavioralDesignPatterns.Observer.ObservableCollection
             }
         }
 
-        public static void CollectionChanged_ToReallocate(object o, NotifyCollectionChangedEventArgs e)
+        public static void CollectionChanged_ToReplace(object o, NotifyCollectionChangedEventArgs e)
         {
             if (e.Action == NotifyCollectionChangedAction.Replace)
             {
