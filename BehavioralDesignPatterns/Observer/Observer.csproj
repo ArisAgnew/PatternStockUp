@@ -4,6 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <RootNamespace>BehavioralDesignPatterns.Observer</RootNamespace>
+    <StartupObject>BehavioralDesignPatterns.Observer.ObservableCollection.Launcher</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
