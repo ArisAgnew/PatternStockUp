@@ -27,21 +27,25 @@ namespace BehavioralDesignPatterns.Observer
                 Notify();
             }
         }
+
         public void Attach(IObserver observer)
         {
             $"{SUBJECT}: Attached an observer.".Depict();
             observers.Add(observer);
         }
+
         public void Detach(IObserver observer)
         {
             observers.Remove(observer);
             $"{SUBJECT}: Detached an observer.".Depict();
         }
+
         public void Notify()
         {
             $"\n\t{SUBJECT}: Notifying observers...".Depict();
             observers.ForEach(observer => observer.Register(this));
         }
+
         public void Dispose()
         {
             _state = default;
