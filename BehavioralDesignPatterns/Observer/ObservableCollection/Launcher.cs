@@ -13,7 +13,7 @@
 
             obs.Collection.CollectionChanged += OCollection<User>.CollectionChanged_ToAdd;
             obs.Collection.CollectionChanged += OCollection<User>.CollectionChanged_ToRemove;
-            obs.Collection.CollectionChanged += OCollection<User>.CollectionChanged_ToReallocate;
+            obs.Collection.CollectionChanged += OCollection<User>.CollectionChanged_ToReplace;
 
             var specimen = new User { Name = "Quentin" };
 
