@@ -35,7 +35,7 @@ namespace Memento
             {
                 try
                 {
-                    Write($">> Enter uptime: ");
+                    Write($"\n>> Enter uptime: ");
                     double uptime = Parse(ReadLine());
 
                     Write($">> Enter polling time: ");
@@ -64,16 +64,26 @@ namespace Memento
 
                     History.Put(Monitor.Save());
 
-                    Write($">> Are you willing to peek through the history [y/n]?: ");
+                    Write($">> Are you willing to peek through the history?: [y/n]\t");
                     keyInfo = ReadKey();
 
                     if (keyInfo.Key == Y)
                     {
                         History.ShowHistory();
+
+                        Write($"\n>> Would you like to keep on working in the programme or to exit? [y/n]\t");
+                        keyInfo = ReadKey();
+
+                        if (keyInfo.Key == Y) continue;
+                        else if (keyInfo.Key == N)
+                        {
+                            WriteLine("\nExiting...");
+                            break;
+                        }
                     }
                     else if (keyInfo.Key == N)
                     {
-                        Write($"\n>>\tWould you mind nullifying history [y]?: ");
+                        Write($"\n>>\tWould you mind nullifying history?: [y/any key]\t");
                         keyInfo = ReadKey();
 
                         if (keyInfo.Key == Y)
