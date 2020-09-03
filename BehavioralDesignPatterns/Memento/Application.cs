@@ -3,7 +3,12 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Text.RegularExpressions;
+
+using static System.Console;
+using static System.ConsoleKey;
+using static System.Double;
+using static System.StringSplitOptions;
+using static System.Text.RegularExpressions.Regex;
 
 namespace Memento
 {
@@ -24,25 +29,25 @@ namespace Memento
 
         public void Run()
         {
-            Console.WriteLine("Welcome to the Memento pattern simulator!");
+            WriteLine("Welcome to the Memento pattern simulator!");
 
             do
             {
                 try
                 {
-                    Console.Write($">> Enter uptime: ");
-                    double uptime = double.Parse(Console.ReadLine());
+                    Write($"\n>> Enter uptime: ");
+                    double uptime = Parse(ReadLine());
 
-                    Console.Write($">> Enter polling time: ");
-                    double pollingInterval = double.Parse(Console.ReadLine());
+                    Write($">> Enter polling time: ");
+                    double pollingInterval = Parse(ReadLine());
 
-                    Console.Write($">> Enter process names(s): ");
-                    string processesAsString = Console.ReadLine();
+                    Write($">> Enter process names(s): ");
+                    string processesAsString = ReadLine();
 
-                    if (new Regex(".*\\s.*").IsMatch(processesAsString))
+                    if (IsMatch(processesAsString, ".*\\s.*"))
                     {
-                        compoundProcesses = processesAsString.Split(new string[] { SPACE, COMMA, DOT },
-                            StringSplitOptions.RemoveEmptyEntries);
+                        compoundProcesses = processesAsString
+                            .Split(new string[] { SPACE, COMMA, DOT }, RemoveEmptyEntries);
                     }
                     else
                     {
@@ -59,35 +64,45 @@ namespace Memento
 
                     History.Put(Monitor.Save());
 
-                    Console.Write($">> Are you willing to peek through the history [y/n]?: ");
-                    keyInfo = Console.ReadKey();
+                    Write($">> Are you willing to peek through the history?: [y/n]\t");
+                    keyInfo = ReadKey();
 
-                    if (keyInfo.Key == ConsoleKey.Y)
+                    if (keyInfo.Key == Y)
                     {
                         History.ShowHistory();
-                    }
-                    else if (keyInfo.Key == ConsoleKey.N)
-                    {
-                        Console.Write($"\n>>\tWould you mind nullifying history [y]?: ");
-                        keyInfo = Console.ReadKey();
 
-                        if (keyInfo.Key == ConsoleKey.Y)
+                        Write($"\n>> Would you like to keep on working in the programme or to exit? [y/n]\t");
+                        keyInfo = ReadKey();
+
+                        if (keyInfo.Key == Y) continue;
+                        else if (keyInfo.Key == N)
+                        {
+                            WriteLine("\nExiting...");
+                            break;
+                        }
+                    }
+                    else if (keyInfo.Key == N)
+                    {
+                        Write($"\n>>\tWould you mind nullifying history?: [y/any key]\t");
+                        keyInfo = ReadKey();
+
+                        if (keyInfo.Key == Y)
                         {
                             History.ResetAllData().ShowHistory();
                         }
 
-                        Console.WriteLine("\nKeep on working...\n");
+                        WriteLine("\nKeep on working...\n");
                         continue;
                     }
                     else
                     {
-                        Console.WriteLine("\nExiting...");
+                        WriteLine("\nExiting...");
                         break;
                     }
                 }
                 catch (FormatException)
                 {
-                    Console.WriteLine("\nIt is considered to be a number type of double. Exiting...");
+                    WriteLine("\nIt is considered to be a number type of double. Exiting...");
                     break;
                 }
 
