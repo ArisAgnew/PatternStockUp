@@ -8,9 +8,9 @@ namespace BehavioralDesignPatterns.Observer
 {
     class Program
     {
-        static BinaryObserver binaryObserver = new BinaryObserver();
-        static OctalObserver octalObserver = new OctalObserver();
-        static HexObserver hexObserver = new HexObserver();
+        static IObserver binaryObserver = new BinaryObserver();
+        static IObserver octalObserver = new OctalObserver();
+        static IObserver hexObserver = new HexObserver();
 
         static void Main(string[] args)
         {
