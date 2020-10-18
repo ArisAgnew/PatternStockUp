@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using UsefulStuff;
 
+using static System.GC;
+
 namespace BehavioralDesignPatterns.Observer
 {
-    internal sealed class Subject : ISubject, IDisposable
+    internal class Subject : ISubject, IDisposable
     {
         private const string SUBJECT = nameof(Subject);
 
         private readonly List<IObserver> observers = new List<IObserver>();
+
+        private bool _disposed = default;
 
         [NonSerialized]
         private long _state = default;
@@ -46,9 +50,25 @@ namespace BehavioralDesignPatterns.Observer
             observers.ForEach(observer => observer.Register(this));
         }
 
+        private protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposed)
+            {
+                if (disposing)
+                {
+                    if (_state != default)
+                    {
+                        _state = default;
+                    }
+                }
+                _disposed = true;
+            }
+        }
+
         public void Dispose()
         {
-            _state = default;
+            Dispose(true);
+            SuppressFinalize(this);
         }
     }
 }
