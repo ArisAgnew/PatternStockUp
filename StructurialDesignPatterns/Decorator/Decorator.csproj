@@ -5,4 +5,9 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Decorator1\" />
+    <Folder Include="Decorator2\" />
+  </ItemGroup>
+
 </Project>
