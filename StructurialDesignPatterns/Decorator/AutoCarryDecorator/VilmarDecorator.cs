@@ -4,13 +4,12 @@ namespace Decorator.AutoCarryDecorator
 {
     public class VilmarDecorator : CharacterDecorator
     {
-        public VilmarDecorator(IAutoCarryCharacter autoCarryCharacter) : base(autoCarryCharacter)
-        {
-        }
+        public VilmarDecorator(IAutoCarryCharacter autoCarryCharacter)
+            : base(autoCarryCharacter) { }
 
-        public override IAutoCarryCharacter ImbalancedSektor()
+        public override IAutoCarryCharacter ImbalancedCharacter(string charName = default)
         {
-            _autoCarryCharacter.ImbalancedSektor();
+            _autoCarryCharacter.ImbalancedCharacter();
             AddProperties(_autoCarryCharacter);
             return _autoCarryCharacter;
         }
