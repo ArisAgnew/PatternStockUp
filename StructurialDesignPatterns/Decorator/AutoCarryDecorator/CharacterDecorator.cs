@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Decorator.AutoCarryDecorator
 {
@@ -10,10 +8,11 @@ namespace Decorator.AutoCarryDecorator
 
         internal CharacterDecorator(IAutoCarryCharacter autoCarryCharacter)
         {
-            _autoCarryCharacter = autoCarryCharacter 
+            _autoCarryCharacter = autoCarryCharacter
                 ?? throw new ArgumentException(nameof(autoCarryCharacter));
         }
 
-        public virtual IAutoCarryCharacter ImbalancedSektor() => _autoCarryCharacter.ImbalancedSektor();
+        public virtual IAutoCarryCharacter ImbalancedCharacter(string charName = default)
+            => _autoCarryCharacter.ImbalancedCharacter();
     }
 }
