@@ -9,4 +9,8 @@
     <Folder Include="Decorator2\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\UsefulStuff\UsefulStuff.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,11 +1,13 @@
-﻿using static Decorator.AutoCarryDecorator.FundamentalMoves;
-using static Decorator.AutoCarryDecorator.SektorSpecialMoves;
+﻿using System.ComponentModel;
+
 using static Decorator.AutoCarryDecorator.TierList;
 
 namespace Decorator.AutoCarryDecorator
 {
+    [DefaultValue(None)]
     internal enum FundamentalMoves
     {
+        None,
         D3,
         Standing_1,
         String_1_1_1_4,
@@ -14,8 +16,10 @@ namespace Decorator.AutoCarryDecorator
         Forward_3
     }
 
+    [DefaultValue(None)]
     internal enum SektorSpecialMoves
     {
+        None,
         FlameBlower,
         StraightMissile,
         VerticalSissile,
@@ -30,11 +34,9 @@ namespace Decorator.AutoCarryDecorator
 
     internal class AutoCarryCharacterBase : IAutoCarryCharacter
     {
-        private const string CHARACTER_NAME = "Sektor";
-
-        public SektorSpecialMoves SektorSpecialMoves { get; private set; }
-        public FundamentalMoves FundamentalMoves { get; private set; }
-        public TierList TierList { get; private set; }
+        public SektorSpecialMoves SektorSpecialMoves { get; internal set; }
+        public FundamentalMoves FundamentalMoves { get; internal set; }
+        public TierList TierList { get; internal set; }
         public string CharName { get; internal set; }
         public string Begetter { get; internal set; }
         public string Symbol { get; internal set; }
@@ -45,16 +47,21 @@ namespace Decorator.AutoCarryDecorator
                 TierList,
                 Begetter,
                 Symbol
-            ) = (Medium, "NetherRealmStudios", "Balanced");
+            ) =
+            (
+                Medium,
+                "NetherRealmStudios",
+                "Balanced"
+            );
             return this;
         }
 
         public override string ToString() =>
             $"AutoCarryCharacter " +
-                $"[{nameof(SektorSpecialMoves)} => {SektorSpecialMoves}, " +
-                $"{nameof(FundamentalMoves)} => {FundamentalMoves}, " +
-                $"{nameof(TierList)} => {TierList}, " +
-                $"{nameof(Begetter)} => {Begetter}, " +
+                $"\n[{nameof(SektorSpecialMoves)} => {SektorSpecialMoves};\n" +
+                $"{nameof(FundamentalMoves)} => {FundamentalMoves};\n" +
+                $"{nameof(TierList)} => {TierList};\n" +
+                $"{nameof(Begetter)} => {Begetter};\n" +
                 $"{nameof(Symbol)} => {Symbol}]\n";
 
         public override int GetHashCode()

@@ -13,6 +13,6 @@ namespace Decorator.AutoCarryDecorator
         }
 
         public virtual IAutoCarryCharacter ImbalancedCharacter(string charName = default)
-            => _autoCarryCharacter.ImbalancedCharacter();
+            => _autoCarryCharacter.ImbalancedCharacter(charName);
     }
 }
