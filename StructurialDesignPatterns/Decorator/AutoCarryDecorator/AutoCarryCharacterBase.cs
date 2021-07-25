@@ -1,5 +1,4 @@
-﻿
-using static Decorator.AutoCarryDecorator.FundamentalMoves;
+﻿using static Decorator.AutoCarryDecorator.FundamentalMoves;
 using static Decorator.AutoCarryDecorator.SektorSpecialMoves;
 using static Decorator.AutoCarryDecorator.TierList;
 
@@ -37,7 +36,6 @@ namespace Decorator.AutoCarryDecorator
         public FundamentalMoves FundamentalMoves { get; private set; }
         public TierList TierList { get; private set; }
         public string Begetter { get; internal set; }
-
         public string Symbol { get; internal set; }
 
         public IAutoCarryCharacter ImbalancedSektor()
