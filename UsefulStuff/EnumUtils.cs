@@ -4,7 +4,7 @@ using static System.Enum;
 
 namespace UsefulStuff
 {
-    public static class EnumUtils
+    public class EnumUtils
     {
         private static Random _random = new();
 

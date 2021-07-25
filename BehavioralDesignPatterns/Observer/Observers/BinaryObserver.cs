@@ -1,5 +1,6 @@
 ﻿using System;
-using UsefulStuff;
+
+using static UsefulStuff.ConsoleDecoratorExtension;
 
 namespace BehavioralDesignPatterns.Observer.Observers
 {

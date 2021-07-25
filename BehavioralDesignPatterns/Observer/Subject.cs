@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using UsefulStuff;
 
 using static System.GC;
+using static UsefulStuff.ConsoleDecoratorExtension;
 
 namespace BehavioralDesignPatterns.Observer
 {
