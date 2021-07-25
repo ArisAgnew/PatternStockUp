@@ -35,18 +35,17 @@ namespace Decorator.AutoCarryDecorator
         public SektorSpecialMoves SektorSpecialMoves { get; private set; }
         public FundamentalMoves FundamentalMoves { get; private set; }
         public TierList TierList { get; private set; }
+        public string CharName { get; internal set; }
         public string Begetter { get; internal set; }
         public string Symbol { get; internal set; }
 
-        public IAutoCarryCharacter ImbalancedSektor()
+        public IAutoCarryCharacter ImbalancedCharacter(string charName = default)
         {
             (
-                SektorSpecialMoves,
-                FundamentalMoves,
                 TierList,
                 Begetter,
                 Symbol
-            ) = (Teleport, D3, Top, "NetherRealmStudios", "Balanced");
+            ) = (Medium, "NetherRealmStudios", "Balanced");
             return this;
         }
 
