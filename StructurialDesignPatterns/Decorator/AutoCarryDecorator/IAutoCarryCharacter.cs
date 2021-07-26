@@ -6,6 +6,5 @@ namespace Decorator.AutoCarryDecorator
 {
     public interface IAutoCarryCharacter : IGame
     {
-        IAutoCarryCharacter ImbalancedSektor();
     }
 }

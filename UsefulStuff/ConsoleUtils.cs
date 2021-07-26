@@ -7,6 +7,7 @@ namespace UsefulStuff
 {
     public static class ConsoleUtils
     {
+        [Obsolete]
         public static void Depict<T>(this T type,
                                      ConsoleColor consoleColor = Gray,
                                      bool line = default,

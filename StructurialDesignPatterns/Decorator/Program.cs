@@ -8,12 +8,17 @@ namespace StructurialDesignPatterns.Decorator
     {
         static void Main(string[] args)
         {
+            if (args is null)
+            {
+                throw new ArgumentNullException(nameof(args));
+            }
+
             IAutoCarryCharacter autoCarry = new AutoCarryCharacterBase();
-            autoCarry.ImbalancedSektor();
+            autoCarry.ImbalancedCharacter("Sektor");
             Console.WriteLine($"{autoCarry}\n");
 
             VilmarDecorator vilmarDecorator = new(autoCarry);
-            vilmarDecorator.ImbalancedSektor();
+            vilmarDecorator.ImbalancedCharacter();
         }
     }
 }

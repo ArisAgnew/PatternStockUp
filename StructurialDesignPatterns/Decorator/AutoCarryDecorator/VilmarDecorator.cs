@@ -1,21 +1,25 @@
 ﻿using System;
 
+using static System.Console;
+using static UsefulStuff.EnumUtils;
+
 namespace Decorator.AutoCarryDecorator
 {
     public class VilmarDecorator : CharacterDecorator
     {
-        public VilmarDecorator(IAutoCarryCharacter autoCarryCharacter) : base(autoCarryCharacter)
-        {
-        }
+        private const string PLAYER = "Vilmar";
 
-        public override IAutoCarryCharacter ImbalancedSektor()
+        public VilmarDecorator(IAutoCarryCharacter autoCarryCharacter)
+            : base(autoCarryCharacter) { }
+
+        public override IAutoCarryCharacter ImbalancedCharacter(string charName = default)
         {
-            _autoCarryCharacter.ImbalancedSektor();
-            AddProperties(_autoCarryCharacter);
+            _autoCarryCharacter.ImbalancedCharacter(charName);
+            AddProperties(_autoCarryCharacter, charName);
             return _autoCarryCharacter;
         }
 
-        public void AddProperties(IAutoCarryCharacter autoCarryCharacter)
+        public void AddProperties(IAutoCarryCharacter autoCarryCharacter, string charName)
         {
             switch (autoCarryCharacter)
             {
@@ -23,12 +27,16 @@ namespace Decorator.AutoCarryDecorator
                     new Action(() =>
                     {
                         AutoCarryCharacterBase auto = autoCarryCharacter as AutoCarryCharacterBase;
-                        auto.Begetter = "Vilmar";
+                        auto.SektorSpecialMoves = RandomEnumValue<SektorSpecialMoves>();
+                        auto.FundamentalMoves = RandomEnumValue<FundamentalMoves>();
+                        auto.TierList = TierList.Top;
+                        auto.CharName = charName;
+                        auto.Begetter = PLAYER;
                         auto.Symbol = "AUTOCARRY";
-                        Console.WriteLine($"{nameof(VilmarDecorator)} " +
+                        WriteLine($"{nameof(VilmarDecorator)} " +
                             $"added additional information to the {_autoCarryCharacter}");
                     })(); break;
-                default: Console.WriteLine("An unexpected error occurred."); break; //as a default solution
+                default: WriteLine("An unexpected error occurred."); break; //as a default solution
             }
         }
 

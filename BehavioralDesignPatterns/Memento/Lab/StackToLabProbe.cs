@@ -1,10 +1,10 @@
-﻿using Memento.Controller;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 
-using UsefulStuff;
+using Memento.Controller;
+
+using static UsefulStuff.ConsoleDecoratorExtension;
 
 namespace Memento.Lab
 {

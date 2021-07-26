@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using BehavioralDesignPatterns.Observer.Observers;
-using UsefulStuff;
+
+using static UsefulStuff.ConsoleDecoratorExtension;
+using static UsefulStuff.ValidationUtils;
 
 namespace BehavioralDesignPatterns.Observer
 {
