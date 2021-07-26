@@ -46,7 +46,7 @@ namespace Decorator.AutoCarryDecorator
 
         public IAutoCarryCharacter ImbalancedCharacter(string charName = default)
         {
-            (                
+            (
                 TierList,
                 Begetter,
                 Symbol
