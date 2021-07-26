@@ -14,7 +14,7 @@ namespace Decorator.AutoCarryDecorator
                 ?? throw new ArgumentException(nameof(autoCarryCharacter));
         }
 
-        public virtual IAutoCarryCharacter ImbalancedCharacter(string charName = default)
-            => _autoCarryCharacter.ImbalancedCharacter(charName);
+        public virtual IAutoCarryCharacter ImbalancedCharacter(string charName = default) => 
+            _autoCarryCharacter.ImbalancedCharacter(charName);
     }
 }
