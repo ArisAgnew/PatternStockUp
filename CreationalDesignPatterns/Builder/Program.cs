@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Builder;
 
 namespace CreationalDesignPatterns.Builder
 {
@@ -6,7 +6,16 @@ namespace CreationalDesignPatterns.Builder
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            ArtfulVilmar.Create()
+                .InitAgility()
+                .InitAutoCarry()
+                .InitHighDamageOutput()
+                .InitReward()
+                .InitTrecherousSlide()
+                .Build
+                .DisplayAbilities();
+            //it worked off; either way, it's not optimal way of implementing the builder
+            //pattern that way. 7/31/21
         }
     }
 }
