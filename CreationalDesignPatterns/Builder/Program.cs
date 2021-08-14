@@ -1,4 +1,4 @@
-﻿using Builder;
+﻿using Builder.VilmarBuilder;
 
 namespace CreationalDesignPatterns.Builder
 {
@@ -11,7 +11,7 @@ namespace CreationalDesignPatterns.Builder
                 .InitAutoCarry()
                 .InitHighDamageOutput()
                 .InitReward()
-                .InitTrecherousSlide()
+                .InitTreacherousSlide()
                 .Build
                 .DisplayAbilities();
             //it worked off; either way, it's not optimal way of implementing the builder

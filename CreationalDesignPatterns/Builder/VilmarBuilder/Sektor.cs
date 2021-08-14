@@ -2,7 +2,7 @@
 
 using static System.Console;
 
-namespace Builder
+namespace Builder.VilmarBuilder
 {
     [DefaultValue(None)]
     internal enum TierList

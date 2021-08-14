@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Builder
+namespace Builder.VilmarBuilder
 {
     //todo 7/31/21: Chances are, this class potentially ought to be omitted;
     internal abstract class SektorBuilder
@@ -15,7 +15,7 @@ namespace Builder
         }
 
         internal abstract SektorBuilder InitAutoCarry();
-        internal abstract SektorBuilder InitTrecherousSlide();
+        internal abstract SektorBuilder InitTreacherousSlide();
         internal abstract SektorBuilder InitAgility();
         internal abstract SektorBuilder InitReward();
         internal abstract SektorBuilder InitHighDamageOutput();        

@@ -1,4 +1,4 @@
-﻿namespace Builder
+﻿namespace Builder.VilmarBuilder
 {
     internal class ArtfulVilmar : SektorBuilder
     {
@@ -26,7 +26,7 @@
             return this;
         }
 
-        internal override SektorBuilder InitTrecherousSlide()
+        internal override SektorBuilder InitTreacherousSlide()
         {
             sektorObject.TrecherousSlide = -13 & -7;
             return this;
