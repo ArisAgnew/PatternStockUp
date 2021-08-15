@@ -28,7 +28,7 @@
 
         internal override SektorBuilder InitTreacherousSlide()
         {
-            sektorObject.TrecherousSlide = -13 & -7;
+            sektorObject.TreacherousSlide = -13 & -7;
             return this;
         }
 
