@@ -17,7 +17,7 @@ namespace Builder.VilmarBuilder
         public Sektor() { }
 
         public object AutoCarry { get; set; }
-        public object TrecherousSlide { get; set; }
+        public object TreacherousSlide { get; set; }
         public object Agility { get; set; }
         public object Reward { get; set; }
         public object HighDamageOutput { get; set; }
@@ -36,7 +36,7 @@ namespace Builder.VilmarBuilder
         public void DisplayAbilities()
         {
             WriteLine($"{nameof(AutoCarry)} : {AutoCarry}");
-            WriteLine($"{nameof(TrecherousSlide)} : {TrecherousSlide}");
+            WriteLine($"{nameof(TreacherousSlide)} : {TreacherousSlide}");
             WriteLine($"{nameof(Agility)} : {Agility}");
             WriteLine($"{nameof(Reward)} : {Reward}");
             WriteLine($"{nameof(HighDamageOutput)} : {HighDamageOutput}");
