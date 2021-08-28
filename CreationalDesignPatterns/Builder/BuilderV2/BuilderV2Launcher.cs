@@ -1,6 +1,6 @@
 ﻿namespace Builder.BuilderV2
 {
-    public class BuilderV2Launcher
+    internal class BuilderV2Launcher
     {
         static void Main(string[] args)
         {
