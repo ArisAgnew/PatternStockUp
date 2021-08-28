@@ -7,6 +7,23 @@ using static Proxy.MathProxy.MathProxyProvider;
 
 namespace Proxy.MathProxy
 {
+    /// <summary>
+    /*  
+        The Proxy design pattern provides a surrogate or
+        placeholder for another object to control access to it.
+        maintains a reference that lets the proxy access the real subject. Proxy may refer to a Subject 
+        if the RealSubject and Subject interfaces are the same.
+        provides an interface identical to Subject's so that a proxy can be substituted for for the real subject.
+        controls access to the real subject and may be responsible for creating and deleting it.
+        other responsibilites depend on the kind of proxy:
+        1. remote proxies are responsible for encoding a request and 
+            its arguments and for sending the encoded request to the real subject in a different address space.
+        2. virtual proxies may cache additional information about the real subject 
+            so that they can postpone accessing it. 
+            For example, the ImageProxy from the Motivation caches the real images's extent.
+        protection proxies check that the caller has the access permissions required to perform a request.
+    */
+    /// </summary>
     internal class MathProxyLauncher
     {
         static void Main(string[] args)
