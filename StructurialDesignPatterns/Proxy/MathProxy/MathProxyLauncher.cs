@@ -21,7 +21,7 @@ namespace Proxy.MathProxy
         2. virtual proxies may cache additional information about the real subject 
             so that they can postpone accessing it. 
             For example, the ImageProxy from the Motivation caches the real images's extent.
-        protection proxies check that the caller has the access permissions required to perform a request.
+        3. protection proxies check that the caller has the access permissions required to perform a request.
     */
     /// </summary>
     internal class MathProxyLauncher
