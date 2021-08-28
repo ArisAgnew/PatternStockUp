@@ -3,6 +3,13 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
+    <StartupObject>Proxy.MathProxy.MathProxyLauncher</StartupObject>
+    <DefineConstants>$(define)</DefineConstants>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\UsefulStuff\UsefulStuff.csproj" />
+    <Resource Include="..\..\UsefulStuff\ConsoleDecoratorExtension.cs" />
+  </ItemGroup>
 
 </Project>
