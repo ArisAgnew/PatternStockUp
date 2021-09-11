@@ -53,7 +53,19 @@ namespace Proxy.MathProxy
                 })()
             );
 
-            WriteLine(Release(ref mathImpl, data.operation)(data.first, data.second));
+            try
+            {
+                var readyToRelease = Release(ref mathImpl, data.operation);
+                var released = checked(readyToRelease(data.first, data.second));
+                WriteLine(released);
+            }
+            catch (OverflowException)
+            {
+                WriteLine($"Overflow cropped up when " +
+                    $"adding or multiplying {data.first} to {data.second}.");
+            }
+
+            //WriteLine(Release(ref mathImpl, data.operation)(data.first, data.second));
 #else
             WriteLine(Release(ref mathImpl, Add)(7, 5)); // 12
             WriteLine(Release(ref mathImpl, Sub)(7, 5)); // 2
