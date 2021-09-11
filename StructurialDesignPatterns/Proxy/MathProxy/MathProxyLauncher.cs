@@ -1,5 +1,7 @@
 ﻿#define WITH_ARGS
-#define WITH_NO_ARGS
+//#undef WITH_ARGS
+
+using System;
 
 using static System.Console;
 using static Proxy.MathProxy.MathOperation;
@@ -29,14 +31,8 @@ namespace Proxy.MathProxy
         static void Main(string[] args)
         {
             MathImpl mathImpl = new();
-#if WITH_NO_ARGS
-            WriteLine(Release(ref mathImpl, Add)(7, 5)); // 12
-            WriteLine(Release(ref mathImpl, Sub)(7, 5)); // 2
-            WriteLine(Release(ref mathImpl, Mul)(7, 5)); // 35
-            WriteLine(Release(ref mathImpl, Div)(7, 5)); // 1.4
-            WriteLine(Release(ref mathImpl, None)(7, 7)); // NaN
-#elif WITH_ARGS
-            var data =
+#if WITH_ARGS
+            (double first, double second, MathOperation operation) data =
             (
                 first: double.Parse(args[0]),
                 second: double.Parse(args[1]),
@@ -58,6 +54,12 @@ namespace Proxy.MathProxy
             );
 
             WriteLine(Release(ref mathImpl, data.operation)(data.first, data.second));
+#else
+            WriteLine(Release(ref mathImpl, Add)(7, 5)); // 12
+            WriteLine(Release(ref mathImpl, Sub)(7, 5)); // 2
+            WriteLine(Release(ref mathImpl, Mul)(7, 5)); // 35
+            WriteLine(Release(ref mathImpl, Div)(7, 5)); // 1.4
+            WriteLine(Release(ref mathImpl, None)(7, 7)); // NaN 
 #endif
         }
     }
