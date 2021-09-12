@@ -4,7 +4,7 @@ using System.IO;
 
 using Memento.Controller;
 
-using static UsefulStuff.ConsoleDecoratorExtension;
+using static UsefulStuff.ConsoleDecoratorExtensions;
 
 namespace Memento.Lab
 {

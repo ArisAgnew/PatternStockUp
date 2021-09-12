@@ -7,7 +7,7 @@ using System.Linq;
 using static System.Console;
 using static System.Enum;
 using static System.Linq.Enumerable;
-using static UsefulStuff.ConsoleDecoratorExtension;
+using static UsefulStuff.ConsoleDecoratorExtensions;
 
 namespace Builder.BuilderV2
 {

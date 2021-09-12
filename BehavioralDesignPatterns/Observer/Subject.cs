@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 using static System.GC;
-using static UsefulStuff.ConsoleDecoratorExtension;
+using static UsefulStuff.ConsoleDecoratorExtensions;
 
 namespace BehavioralDesignPatterns.Observer
 {

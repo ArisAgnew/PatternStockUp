@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 using Singleton.TSafeDoubleCheckLocking;
 
-using static UsefulStuff.ConsoleDecoratorExtension;
+using static UsefulStuff.ConsoleDecoratorExtensions;
 
 namespace CreationalDesignPatterns.Singleton
 {
