@@ -5,7 +5,7 @@ using static System.ConsoleColor;
 
 namespace UsefulStuff
 {
-    public static class ConsoleDecoratorExtension
+    public static class ConsoleDecoratorExtensions
     {
         public static void Depict<T>(this T type,
                                      ConsoleColor consoleColor = Gray,

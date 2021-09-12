@@ -4,7 +4,7 @@ using System.Linq;
 
 using BehavioralDesignPatterns.Observer.Observers;
 
-using static UsefulStuff.ConsoleDecoratorExtension;
+using static UsefulStuff.ConsoleDecoratorExtensions;
 using static UsefulStuff.ValidationUtils;
 
 namespace BehavioralDesignPatterns.Observer
