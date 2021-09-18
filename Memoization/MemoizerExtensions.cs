@@ -2,6 +2,10 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 
+using Microsoft.Extensions.Caching.Memory;
+
+using static System.TimeSpan;
+
 namespace Memoization
 {
     internal static class MemoizerExtensions
@@ -9,6 +13,7 @@ namespace Memoization
         internal static Func<Output> Memoize<Output>(this Func<Output> func) => Memoizer.Memoize(func);
         internal static Func<Input, Output> Memoize<Input, Output>(this Func<Input, Output> func) => Memoizer.Memoize(func);
         internal static Func<Input, Output> ConcurrentMemoize<Input, Output>(this Func<Input, Output> func) => Memoizer.ConcurrentMemoize(func);
+        internal static Func<Input, Output> MemoizeWithPolicy<Input, Output>(this Func<Input, Output> func) => MemoryCacheWithPolicy<Input, Output>.GetOrCreate(func);
 
         private class Memoizer
         {
@@ -43,6 +48,36 @@ namespace Memoization
             {
                 ConcurrentDictionary<Input, Output> cache = new();
                 return _in => cache.GetOrAdd(_in, func);
+            }
+        }
+
+        private class MemoryCacheWithPolicy<Input, Output>
+        {
+            private static readonly MemoryCache _cache = new(new MemoryCacheOptions() { SizeLimit = 4096 });
+
+            internal static Func<Input, Output> GetOrCreate(Func<Input, Output> func)
+            {
+                return _in =>
+                {
+                    if (!_cache.TryGetValue(_in, out Output cacheEntry)) // Look for cache key.
+                    {
+                        // Key not in cache, so get data.
+                        cacheEntry = func(_in);
+
+                        var cacheEntryOptions = new MemoryCacheEntryOptions()
+                            .SetSize(1) // Size amount
+                            // Priority on removing when reaching size limit (memory pressure)
+                            .SetPriority(CacheItemPriority.High)
+                            // Keep in cache for this time, reset time if accessed.
+                            .SetSlidingExpiration(FromSeconds(2))
+                            // Remove from cache after this time, regardless of sliding expiration
+                            .SetAbsoluteExpiration(FromSeconds(10));
+
+                        // Save data in cache.
+                        _cache.Set(_in, func(_in), cacheEntryOptions);
+                    }
+                    return cacheEntry;
+                };
             }
         }
     }
