@@ -38,7 +38,8 @@ namespace Memoization
             WriteLine(sw.ElapsedTicks);
 
             // Memoize function
-            FibonacciFunc = FibonacciFunc.Memoize();
+            //FibonacciFunc = FibonacciFunc.Memoize();
+            FibonacciFunc = FibonacciFunc.MemoizeWithPolicy();
 
             // With memoization
             sw = StartNew();
