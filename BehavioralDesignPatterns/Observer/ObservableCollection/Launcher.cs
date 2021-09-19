@@ -9,7 +9,7 @@
     {
         static void Main(string[] args)
         {
-            OCollection<User> obs = new OCollection<User>();
+            OCollection<User> obs = new();
 
             obs.Collection.CollectionChanged += OCollection<User>.CollectionChanged_ToAdd;
             obs.Collection.CollectionChanged += OCollection<User>.CollectionChanged_ToRemove;

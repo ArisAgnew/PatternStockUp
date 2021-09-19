@@ -39,6 +39,7 @@ namespace Memoization
 
             // Memoize function
             FibonacciFunc = FibonacciFunc.Memoize();
+            //FibonacciFunc = FibonacciFunc.MemoizeWithPolicy();
 
             // With memoization
             sw = StartNew();
