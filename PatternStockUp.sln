@@ -57,7 +57,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proxy", "StructurialDesignP
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MiscellaneousTechniques", "MiscellaneousTechniques", "{FDA68C2A-D7C7-4372-99D5-EC656FD809E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Memoization", "Memoization\Memoization.csproj", "{AB8C509C-C91E-46BC-AEEA-E24A7F08400B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Memoization", "Memoization\Memoization.csproj", "{AB8C509C-C91E-46BC-AEEA-E24A7F08400B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeakReferenceConcept", "WeakReferenceConcept\WeakReferenceConcept.csproj", "{4C911F50-C497-45EA-9498-5628CBC0DEE6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -161,6 +163,10 @@ Global
 		{AB8C509C-C91E-46BC-AEEA-E24A7F08400B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB8C509C-C91E-46BC-AEEA-E24A7F08400B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB8C509C-C91E-46BC-AEEA-E24A7F08400B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C911F50-C497-45EA-9498-5628CBC0DEE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C911F50-C497-45EA-9498-5628CBC0DEE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C911F50-C497-45EA-9498-5628CBC0DEE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C911F50-C497-45EA-9498-5628CBC0DEE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -189,6 +195,7 @@ Global
 		{FB71BB37-0414-4264-803A-A8CA526DF083} = {1F16092E-C308-4FAD-B510-C6F42FC3DDF5}
 		{EEDF6361-33C1-4871-8C26-FFCACE353B32} = {1F16092E-C308-4FAD-B510-C6F42FC3DDF5}
 		{AB8C509C-C91E-46BC-AEEA-E24A7F08400B} = {FDA68C2A-D7C7-4372-99D5-EC656FD809E3}
+		{4C911F50-C497-45EA-9498-5628CBC0DEE6} = {FDA68C2A-D7C7-4372-99D5-EC656FD809E3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {292886D1-726D-4718-A11A-533AE35D9622}
