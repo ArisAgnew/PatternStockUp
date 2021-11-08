@@ -55,11 +55,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flyweight", "StructurialDes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proxy", "StructurialDesignPatterns\Proxy\Proxy.csproj", "{EEDF6361-33C1-4871-8C26-FFCACE353B32}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MiscellaneousTechniques", "MiscellaneousTechniques", "{FDA68C2A-D7C7-4372-99D5-EC656FD809E3}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MiscellaneousStuff", "MiscellaneousStuff", "{FDA68C2A-D7C7-4372-99D5-EC656FD809E3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Memoization", "Memoization\Memoization.csproj", "{AB8C509C-C91E-46BC-AEEA-E24A7F08400B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeakReferenceConcept", "WeakReferenceConcept\WeakReferenceConcept.csproj", "{4C911F50-C497-45EA-9498-5628CBC0DEE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeakReferenceConcept", "WeakReferenceConcept\WeakReferenceConcept.csproj", "{4C911F50-C497-45EA-9498-5628CBC0DEE6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
