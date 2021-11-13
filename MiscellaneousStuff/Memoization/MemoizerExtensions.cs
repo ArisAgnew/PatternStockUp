@@ -6,7 +6,7 @@ using Microsoft.Extensions.Caching.Memory;
 
 using static System.TimeSpan;
 
-namespace MiscellaneousStuff.WeakReferenceConcept
+namespace MiscellaneousStuff.Memoization
 {
     internal static class MemoizerExtensions
     {
