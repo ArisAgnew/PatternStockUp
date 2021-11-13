@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using static System.Console;
 using static System.Runtime.InteropServices.Marshal;
 
-namespace WeakReferenceConcept
+namespace MiscellaneousStuff.WeakReferenceConcept
 {
     internal class IndexerCache : IIndexerCache<ByteData>
     {

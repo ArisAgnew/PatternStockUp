@@ -6,7 +6,7 @@ using Microsoft.Extensions.Caching.Memory;
 
 using static System.TimeSpan;
 
-namespace Memoization
+namespace MiscellaneousStuff.WeakReferenceConcept
 {
     internal static class MemoizerExtensions
     {
@@ -66,7 +66,7 @@ namespace Memoization
 
                         var cacheEntryOptions = new MemoryCacheEntryOptions()
                             .SetSize(1) // Size amount
-                            // Priority on removing when reaching size limit (memory pressure)
+                                        // Priority on removing when reaching size limit (memory pressure)
                             .SetPriority(CacheItemPriority.High)
                             // Keep in cache for this time, reset time if accessed.
                             .SetSlidingExpiration(FromSeconds(2))

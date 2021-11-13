@@ -1,4 +1,4 @@
-﻿namespace WeakReferenceConcept
+﻿namespace MiscellaneousStuff.WeakReferenceConcept
 {
     public record ByteData(int Size)
     {

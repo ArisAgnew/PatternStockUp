@@ -35,7 +35,7 @@ using static System.Console;
  * If the Target property returns null, the object was collected; otherwise, you can continue to use the object because the application has regained a strong reference to it.
  */
 /// </summary>
-namespace WeakReferenceConcept
+namespace MiscellaneousStuff.WeakReferenceConcept
 {
     class Program
     {

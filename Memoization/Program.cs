@@ -6,7 +6,7 @@ using UsefulStuff;
 using static System.Console;
 using static System.Diagnostics.Stopwatch;
 
-namespace Memoization
+namespace MiscellaneousStuff.WeakReferenceConcept
 {
     class Program
     {
