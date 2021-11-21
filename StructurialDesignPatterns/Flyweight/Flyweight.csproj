@@ -3,6 +3,11 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
+    <StartupObject>Flyweight.Specimen_1.Launcher</StartupObject>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Specimen_2\" />
+  </ItemGroup>
 
 </Project>
