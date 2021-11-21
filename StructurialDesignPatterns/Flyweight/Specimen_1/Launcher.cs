@@ -2,6 +2,10 @@
 
 namespace Flyweight.Specimen_1
 {
+    /*
+     * The Flyweight design pattern uses sharing 
+     * to support large numbers of fine-grained objects efficiently.
+     */
     class Launcher
     {
         static void Main(string[] args)
