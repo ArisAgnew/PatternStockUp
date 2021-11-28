@@ -61,6 +61,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Memoization", "Miscellaneou
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MiscellaneousStuff", "MiscellaneousStuff", "{62317B50-6F03-4A19-BE9D-57A48E39101A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgressBar", "ProgressBar\ProgressBar.csproj", "{6B06AC97-8110-4F3A-BD84-0E7CA0339072}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -167,6 +169,10 @@ Global
 		{833E4898-1826-428D-B472-0F840349CC60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{833E4898-1826-428D-B472-0F840349CC60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{833E4898-1826-428D-B472-0F840349CC60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B06AC97-8110-4F3A-BD84-0E7CA0339072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B06AC97-8110-4F3A-BD84-0E7CA0339072}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B06AC97-8110-4F3A-BD84-0E7CA0339072}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B06AC97-8110-4F3A-BD84-0E7CA0339072}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -196,6 +202,7 @@ Global
 		{EEDF6361-33C1-4871-8C26-FFCACE353B32} = {1F16092E-C308-4FAD-B510-C6F42FC3DDF5}
 		{C9EDC680-D05B-475A-BC75-E73D555DD045} = {62317B50-6F03-4A19-BE9D-57A48E39101A}
 		{833E4898-1826-428D-B472-0F840349CC60} = {62317B50-6F03-4A19-BE9D-57A48E39101A}
+		{6B06AC97-8110-4F3A-BD84-0E7CA0339072} = {62317B50-6F03-4A19-BE9D-57A48E39101A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {292886D1-726D-4718-A11A-533AE35D9622}
