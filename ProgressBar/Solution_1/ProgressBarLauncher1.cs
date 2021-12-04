@@ -1,12 +1,12 @@
 ﻿using static System.Console;
 using static System.Threading.Thread;
-using static ProgressBar.Solution_1.ConsoleUtility;
+using static MiscellaneousStuff.ProgressBar.Solution_1.ConsoleUtility;
 
-namespace ProgressBar.Solution_1
+namespace MiscellaneousStuff.ProgressBar.Solution_1
 {
     internal class ProgressBarLauncher1
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             for (var i = 0; i <= 100; ++i)
             {
@@ -16,7 +16,7 @@ namespace ProgressBar.Solution_1
         }
     }
 
-    static class ConsoleUtility
+    internal static class ConsoleUtility
     {
         private const char _block = (char)0x23;
         private const string _back = "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b";

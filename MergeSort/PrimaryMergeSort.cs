@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MergeSort
+namespace MiscellaneousStuff.SortAlgorithms.MergeSort
 {
     internal class PrimaryMergeSort
     {
