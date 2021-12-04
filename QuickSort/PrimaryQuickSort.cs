@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace QuickSort
+namespace MiscellaneousStuff.SortAlgorithms.QuickSort
 {
     internal sealed class EnumerableQuickSort
     {

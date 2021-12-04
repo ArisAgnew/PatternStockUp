@@ -5,7 +5,7 @@ using System.Linq;
 using static System.Console;
 using static System.Linq.Enumerable;
 
-namespace QuickSort
+namespace MiscellaneousStuff.SortAlgorithms.QuickSort
 {
     class Program
     {

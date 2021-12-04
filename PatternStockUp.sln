@@ -65,9 +65,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProgressBar", "ProgressBar\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SortAlgorithms", "SortAlgorithms", "{F045D1B8-C4B1-4FFF-9611-0CBED38171D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickSort", "QuickSort\QuickSort.csproj", "{FE1A77F1-1EB3-437F-95E0-DF95E68B60AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickSort", "QuickSort\QuickSort.csproj", "{FE1A77F1-1EB3-437F-95E0-DF95E68B60AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MergeSort", "MergeSort\MergeSort.csproj", "{94811853-9EDF-4CE2-B39A-8A4C200CB0A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MergeSort", "MergeSort\MergeSort.csproj", "{94811853-9EDF-4CE2-B39A-8A4C200CB0A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
