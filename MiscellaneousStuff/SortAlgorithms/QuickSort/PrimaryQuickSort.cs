@@ -15,7 +15,7 @@ namespace MiscellaneousStuff.SortAlgorithms.QuickSort
             long firstElement = sequence.FirstOrDefault();
             ILookup<int, long> lookUp = sequence.ToLookup(q => q.CompareTo(firstElement));
 
-            return Sort(lookUp[-1]).Concat(lookUp[0]).Concat(Sort(lookUp[1]));
+            return Sort(lookUp[-1]).Concat(lookUp[0]).Concat(lookUp[1]);
         }
     }
 
