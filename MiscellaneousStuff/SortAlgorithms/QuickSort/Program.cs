@@ -1,68 +1,61 @@
-﻿using System;
-using System.Collections.Immutable;
-using System.Diagnostics;
-using System.Linq;
+﻿global using System;
+global using System.Collections.Generic;
+global using System.Collections.Immutable;
+global using System.Diagnostics;
+global using System.Linq;
+global using MiscellaneousStuff.SortAlgorithms.QuickSort;
+global using static System.Console;
+global using static System.Linq.Enumerable;
 
-using static System.Console;
-using static System.Linq.Enumerable;
+const char SPACE = ' ';
+const int max = 20;
 
-namespace MiscellaneousStuff.SortAlgorithms.QuickSort
-{
-    class Program
-    {
-        private const char SPACE = ' ';
-        private static Stopwatch stopwatch = new();
+Stopwatch stopwatch = new();
 
-        static void Main(string[] args)
-        {
-            int max = 20;
-            long[] array = Range(default, max + 1)
-                .Select(i => Convert.ToInt64(i))
-                .OrderBy(i => new Random().Next())
-                .ToArray();
+long[] array = Range(default, max + 1)
+    .Select(i => Convert.ToInt64(i))
+    .OrderBy(i => new Random().Next())
+    .ToArray();
 
-            #region Random unsorted initial array
-            WriteLine("Unsorted:");
-            array.ToImmutableList().ForEach(n => Write($"{n}{SPACE}"));
-            #endregion
+static string Elapsed(in Stopwatch stopwatch) => stopwatch.Elapsed.ToString(@"hh\:mm\:ss\.fffffff");
 
-            #region Recursive sorting
-            WriteLine("\n\nRecursive Sorting:");
-            {
-                stopwatch.Start();
-                PrimaryQuickSort.ByUsingRecursive.SortRecursive(array)
-                    .ToImmutableList()
-                    .ForEach(n => Write($"{n}{SPACE}"));
-                stopwatch.Stop();
-                WriteLine($"\nRecursive Sorting --> {Elapsed(stopwatch)}");
-            }
-            #endregion
+#region Random unsorted initial array
+WriteLine("Unsorted:");
+array.ToImmutableList().ForEach(n => Write($"{n}{SPACE}"));
+#endregion
 
-            #region Iterative Sorting
-            WriteLine("\nIterative Sorting:");
-            {
-                stopwatch.Start();
-                EnumerableQuickSort.Sort(array)
-                    .ToImmutableList()
-                    .ForEach(n => Write($"{n}{SPACE}"));
-                stopwatch.Stop();
-                WriteLine($"\nIterative Sorting --> {Elapsed(stopwatch)}");
-            }
-            #endregion
+#region Recursive sorting
+WriteLine("\n\nRecursive Sorting:");
 
-            #region Sorting by means of using IEnumerable LINQ methods
-            WriteLine("\nEnumerable Sorting:");
-            {
-                stopwatch.Start();
-                EnumerableQuickSort.Sort(array)
-                    .ToImmutableList()
-                    .ForEach(n => Write($"{n}{SPACE}"));
-                stopwatch.Stop();
-                WriteLine($"\nLookup quick sorting --> {Elapsed(stopwatch)}");
-            }
-            #endregion
-        }
+stopwatch.Start();
+PrimaryQuickSort.ByUsingRecursive.SortRecursive(array)
+    .ToImmutableList()
+    .ForEach(n => Write($"{n}{SPACE}"));
+stopwatch.Stop();
 
-        static string Elapsed(in Stopwatch stopwatch) => stopwatch.Elapsed.ToString(@"hh\:mm\:ss\.fffffff");
-    }
-}
+WriteLine($"\nRecursive Sorting --> {Elapsed(stopwatch)}");
+#endregion
+
+#region Iterative Sorting
+WriteLine("\nIterative Sorting:");
+
+stopwatch.Start();
+EnumerableQuickSort.Sort(array)
+    .ToImmutableList()
+    .ForEach(n => Write($"{n}{SPACE}"));
+stopwatch.Stop();
+
+WriteLine($"\nIterative Sorting --> {Elapsed(stopwatch)}");
+#endregion
+
+#region Sorting by means of using IEnumerable LINQ methods
+WriteLine("\nEnumerable Sorting:");
+
+stopwatch.Start();
+EnumerableQuickSort.Sort(array)
+    .ToImmutableList()
+    .ForEach(n => Write($"{n}{SPACE}"));
+stopwatch.Stop();
+
+WriteLine($"\nLookup quick sorting --> {Elapsed(stopwatch)}");
+#endregion
