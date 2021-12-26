@@ -1,53 +1,72 @@
-﻿using System;
-using System.Collections.Generic;
+﻿global using System;
+global using System.Collections.Concurrent;
+global using System.Collections.Generic;
+global using Microsoft.Extensions.Caching.Memory;
+global using UsefulStuff;
 
-using UsefulStuff;
+global using static System.TimeSpan;
 
+using MiscellaneousStuff.Memoization;
 using static System.Console;
 using static System.Diagnostics.Stopwatch;
 
-namespace MiscellaneousStuff.Memoization
+#region Arrange
+Func<uint, uint> FibonacciFunc = default;
+Func<uint, IEnumerable<uint>> FibonacciEnumerableFunc = default;
+FibonacciBase fibonacci = default;
+#endregion
+
+#region Finctions and instance initialization
+FibonacciFunc = n => n >= 2 ? FibonacciFunc(n - 1) + FibonacciFunc(n - 2) : n;
+
+FibonacciEnumerableFunc = n =>
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Func<uint, uint> FibonacciFunc = default;
-            Func<uint, IEnumerable<uint>> FibonacciEnumerableFunc = default;
-            FibonacciBase fibonacci = default;
+    fibonacci = new() { Number = n };
+    return fibonacci;
+};
+#endregion
 
-            FibonacciFunc = n => n >= 2 ? FibonacciFunc(n - 1) + FibonacciFunc(n - 2) : n;
-
-            FibonacciEnumerableFunc = n =>
-            {
-                fibonacci = new() { Number = n };
-                return fibonacci;
-            };
-
-            /*foreach (var item in FibonacciFunc(10))
-            {
-                WriteLine(item);
-            }*/
-
-            // Without memoization
-            var sw = StartNew();
-            for (int i = 0; i < 10_000; ++i)
-            {
-                FibonacciFunc(15);
-            }
-            WriteLine(sw.ElapsedTicks);
-
-            // Memoize function
-            FibonacciFunc = FibonacciFunc.Memoize();
-            //FibonacciFunc = FibonacciFunc.MemoizeWithPolicy();
-
-            // With memoization
-            sw = StartNew();
-            for (int i = 0; i < 10_000; ++i)
-            {
-                FibonacciFunc(15);
-            }
-            WriteLine(sw.ElapsedTicks);
-        }
-    }
+#region Without memoization
+var sw = StartNew();
+for (int i = default; i <= 10_000; ++i)
+{
+    FibonacciFunc(15);
 }
+WriteLine($"With no memoization: {sw.ElapsedTicks} elapsed ticks.");
+#endregion
+
+// Memoize function
+FibonacciFunc = FibonacciFunc.Memoize();
+//FibonacciFunc = FibonacciFunc.MemoizeWithPolicy();
+
+#region With memoization
+sw = StartNew();
+for (int i = default; i <= 10_000; ++i)
+{
+    FibonacciFunc(15);
+}
+WriteLine($"With memoization: {sw.ElapsedTicks} elapsed ticks.");
+#endregion
+
+#region Additional implementation if Fibonacci as of December 26th
+Dictionary<uint, uint> _memoizationDict = new()
+{
+    { 0, 0 },
+    { 1, 1 }
+};
+
+uint Fibonacci(uint n)
+{
+    if (_memoizationDict.ContainsKey(n))
+    {
+        return _memoizationDict[n];
+    }
+
+    return Fibonacci(n - 1) + Fibonacci(n - 2);
+}
+
+for (uint i = default; i <= 32; ++i)
+{
+    WriteLine($"Fibonacci({i}) = {Fibonacci(i)}");
+}
+#endregion

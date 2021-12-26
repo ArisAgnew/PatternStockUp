@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-
-using Microsoft.Extensions.Caching.Memory;
-
-using static System.TimeSpan;
-
-namespace MiscellaneousStuff.Memoization
+﻿namespace MiscellaneousStuff.Memoization
 {
     internal static class MemoizerExtensions
     {
