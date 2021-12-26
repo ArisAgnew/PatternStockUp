@@ -58,4 +58,6 @@ EnumerableQuickSort.Sort(array)
 stopwatch.Stop();
 
 WriteLine($"\nLookup quick sorting --> {Elapsed(stopwatch)}");
+
+Console.ReadLine();
 #endregion
