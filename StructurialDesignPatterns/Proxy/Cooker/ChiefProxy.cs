@@ -6,10 +6,7 @@ internal class ChiefProxy : IChief
 
     private IDictionary<long, string>? _statuses;
 
-    public ChiefProxy(IChief chief)
-    {
-        _chief = chief;
-    }
+    public ChiefProxy(IChief chief) => _chief = chief;
 
     public IEnumerable<Order> GetOrders() =>
         new Func<IEnumerable<Order>>(() =>
