@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace StateDesignPattern
+﻿namespace StateDesignPattern
 {
     internal interface IState
     {
+        IState DoLike(StateComponent stateComponent);
+        IState DoDislike(StateComponent stateComponent);
     }
 }
