@@ -16,7 +16,7 @@
                 {
                     if (cache is default(Func<Output>))
                     {
-                        cache ??= func();
+                        cache = func();
                     }
                     return cache;
                 };
@@ -24,12 +24,13 @@
 
             internal static Func<Input, Output> Memoize<Input, Output>(Func<Input, Output> func)
             {
-                Dictionary<Input, Output> cache = new();
+                Dictionary<Input, Output> cache = [];
+
                 return _in =>
                 {
-                    if (cache.TryGetValue(_in, out Output value))
+                    if (!cache.TryGetValue(_in, out Output value))
                     {
-                        value ??= func(_in);
+                        value = func(_in);
                         cache.Add(_in, value);
                     }
                     return value;

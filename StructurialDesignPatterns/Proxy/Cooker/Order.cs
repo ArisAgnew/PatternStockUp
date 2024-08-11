@@ -1,10 +1,6 @@
 ﻿namespace Proxy.Cooker;
 
-internal struct Order
+internal record struct Order(string? Name, int StatusId)
 {
     internal Guid Id { get; set; } = Guid.NewGuid();
-
-    internal string? Name { get; set; }
-
-    internal int StatusId { get; set; }
 }

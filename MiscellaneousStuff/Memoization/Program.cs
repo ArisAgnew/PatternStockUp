@@ -1,11 +1,9 @@
-﻿global using System;
+﻿global using Microsoft.Extensions.Caching.Memory;
+global using System;
 global using System.Collections.Concurrent;
 global using System.Collections.Generic;
-global using Microsoft.Extensions.Caching.Memory;
 global using UsefulStuff;
-
 global using static System.TimeSpan;
-
 using MiscellaneousStuff.Memoization;
 using static System.Console;
 using static System.Diagnostics.Stopwatch;
@@ -16,7 +14,7 @@ Func<uint, IEnumerable<uint>> FibonacciEnumerableFunc = default;
 FibonacciBase fibonacci = default;
 #endregion
 
-#region Finctions and instance initialization
+#region Functions and instance initialization
 FibonacciFunc = n => n >= 2 ? FibonacciFunc(n - 1) + FibonacciFunc(n - 2) : n;
 
 FibonacciEnumerableFunc = n =>
@@ -30,9 +28,10 @@ FibonacciEnumerableFunc = n =>
 var sw = StartNew();
 for (int i = default; i <= 10_000; ++i)
 {
-    FibonacciFunc(15);
+    FibonacciFunc(9);
 }
 WriteLine($"With no memoization: {sw.ElapsedTicks} elapsed ticks.");
+sw.Stop();
 #endregion
 
 // Memoize function
@@ -41,11 +40,13 @@ FibonacciFunc = FibonacciFunc.Memoize();
 
 #region With memoization
 sw = StartNew();
-for (int i = default; i <= 10_000; ++i)
+for (int i = default; i <= 10; ++i)
 {
-    FibonacciFunc(15);
+    WriteLine($"Fibonacci({9}) = {FibonacciFunc(9)}");
 }
 WriteLine($"With memoization: {sw.ElapsedTicks} elapsed ticks.");
+sw.Stop();
+WriteLine("=====================================");
 #endregion
 
 #region Additional implementation if Fibonacci as of December 26th
@@ -65,7 +66,7 @@ uint Fibonacci(uint n)
     return Fibonacci(n - 1) + Fibonacci(n - 2);
 }
 
-for (uint i = default; i <= 32; ++i)
+for (uint i = default; i <= 16; ++i)
 {
     WriteLine($"Fibonacci({i}) = {Fibonacci(i)}");
 }

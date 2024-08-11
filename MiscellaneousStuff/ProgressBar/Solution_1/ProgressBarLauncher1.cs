@@ -1,6 +1,6 @@
-﻿using static System.Console;
+﻿using static MiscellaneousStuff.ProgressBar.Solution_1.ConsoleUtility;
+using static System.Console;
 using static System.Threading.Thread;
-using static MiscellaneousStuff.ProgressBar.Solution_1.ConsoleUtility;
 
 namespace MiscellaneousStuff.ProgressBar.Solution_1
 {

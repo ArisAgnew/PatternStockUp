@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Proxy.MathProxy
+﻿namespace Proxy.MathProxy
 {
     enum MathOperation { None, Add, Sub, Mul, Div }
 
